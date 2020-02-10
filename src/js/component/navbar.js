@@ -4,7 +4,7 @@ import "../../styles/home.scss";
 
 export const Navbar = () => {
 	return (
-		<nav className="navbar navbar-expand-lg navbar-light">
+		<nav className="navbar navbar-expand-lg navbar-light pt-3">
 			<a className="navbar-brand" href="#">
 				Navbar
 			</a>
@@ -23,41 +23,28 @@ export const Navbar = () => {
 					<ul className="navbar-nav">
 						<li className="nav-item active">
 							<a className="nav-link" href="#">
-								Home <span className="sr-only">(current)</span>
+								Categories <span className="sr-only">(current)</span>
 							</a>
 						</li>
-						<li className="nav-item">
+						<li className="nav-item active">
 							<a className="nav-link" href="#">
-								Features
+								About Us
 							</a>
 						</li>
-						<li className="nav-item">
+						<li className="nav-item active">
 							<a className="nav-link" href="#">
-								Pricing
+								Testimonials
 							</a>
 						</li>
-						<li className="nav-item dropdown">
-							<a
-								className="nav-link dropdown-toggle"
-								href="#"
-								id="navbarDropdownMenuLink"
-								role="button"
-								data-toggle="dropdown"
-								aria-haspopup="true"
-								aria-expanded="false">
-								Dropdown link
+						<li className="nav-item active">
+							<a className="nav-link" href="#">
+								FAQ
 							</a>
-							<div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-								<a className="dropdown-item" href="#">
-									Action
-								</a>
-								<a className="dropdown-item" href="#">
-									Another action
-								</a>
-								<a className="dropdown-item" href="#">
-									Something else here
-								</a>
-							</div>
+						</li>
+						<li className="nav-item active">
+							<a className="nav-link" href="#">
+								Shipping
+							</a>
 						</li>
 					</ul>
 				</div>
