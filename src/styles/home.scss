@@ -20,5 +20,17 @@ button {
 }
 
 .search-button {
-    margin-left: 40%;
+    display: block; 
+    margin: 0 auto;
+}
+
+.bestselling-button{
+    display: block; 
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+
+.card-deck {
+    padding: 50px 100px;
+    margin: 0 auto;
 }
