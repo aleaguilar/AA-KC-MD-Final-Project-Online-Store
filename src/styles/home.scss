@@ -6,6 +6,11 @@ button {
     background-color: #7ac142 !important;
 }
 
+.footer {
+    background-color: #2d5980;
+    color: white;
+}
+
 .footer ul {
     list-style-type: none;
     display: inline-block;
@@ -43,5 +48,14 @@ button {
 .subscription-button{
     display: block; 
     margin: 0 auto;
-    margin-bottom: 50px;
+}
+
+.common-objections {
+    margin-left: 10%;
+    margin-right: 20%;
+    padding: 50px;
+}
+
+.common-objections h1 {
+    padding-bottom: 20px;
 }

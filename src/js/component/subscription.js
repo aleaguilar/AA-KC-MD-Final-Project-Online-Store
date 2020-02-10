@@ -6,7 +6,7 @@ import Button from "react-bootstrap/Button";
 
 export const Subscription = () => (
 	<div className="subscription">
-		<h1 className="text-center pb-4">Email Subscription</h1>
+		<h1 className="text-center pb-4 text-white">Email Subscription</h1>
 		<Form>
 			<Form.Group controlId="formBasicEmail">
 				<Form.Control type="email" placeholder="Enter email" />
