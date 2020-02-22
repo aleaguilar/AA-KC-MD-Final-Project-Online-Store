@@ -9,8 +9,8 @@ export const Cards = () => (
 	<>
 		<div>
 			<h1 className="text-center pb-4">Bestselling Products</h1>
-			<CardDeck>
-				<Card>
+			<CardDeck className="row">
+				<Card className="col-xl-3 col-lg-4 col-md-6 col-12">
 					<Card.Img
 						variant="top"
 						src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTJ1fRDjhT0ZzxT8RkA5uC2Y3T7zrU_Tjm0Xf4Nt5y3XCD4pDaK"
@@ -19,7 +19,7 @@ export const Cards = () => (
 						<Card.Text>Best selling item #1</Card.Text>
 					</Card.Body>
 				</Card>
-				<Card>
+				<Card className="col-xl-3 col-lg-4 col-md-6 col-12">
 					<Card.Img
 						variant="top"
 						src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTJ1fRDjhT0ZzxT8RkA5uC2Y3T7zrU_Tjm0Xf4Nt5y3XCD4pDaK"
@@ -28,7 +28,7 @@ export const Cards = () => (
 						<Card.Text>Best selling item #2</Card.Text>
 					</Card.Body>
 				</Card>
-				<Card>
+				<Card className="col-xl-3 col-lg-4 col-md-6 col-12">
 					<Card.Img
 						variant="top"
 						src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTJ1fRDjhT0ZzxT8RkA5uC2Y3T7zrU_Tjm0Xf4Nt5y3XCD4pDaK"
@@ -37,7 +37,7 @@ export const Cards = () => (
 						<Card.Text>Best selling item #3</Card.Text>
 					</Card.Body>
 				</Card>
-				<Card>
+				<Card className="col-xl-3 col-lg-4 col-md-6 col-12">
 					<Card.Img
 						variant="top"
 						src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTJ1fRDjhT0ZzxT8RkA5uC2Y3T7zrU_Tjm0Xf4Nt5y3XCD4pDaK"
