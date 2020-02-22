@@ -11,6 +11,7 @@ import { Navbar } from "./component/navbar";
 import { Searchbar } from "./component/searchbar";
 import { Cards } from "./component/cards";
 import { Subscription } from "./component/subscription";
+import { ActiveCampaignForm } from "./component/acintegration";
 import { Footer } from "./component/footer";
 
 //create your first component
@@ -26,7 +27,7 @@ export const Layout = () => {
 					<Navbar />
 					<Searchbar />
 					<Cards />
-					<Subscription />
+					<ActiveCampaignForm />
 					<Switch>
 						<Route exact path="/" component={Home} />
 						<Route path="/demo" component={Demo} />
