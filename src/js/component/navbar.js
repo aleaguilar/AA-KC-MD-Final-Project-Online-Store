@@ -6,7 +6,7 @@ export const Navbar = () => {
 	return (
 		<nav className="navbar navbar-expand-lg navbar-light font-weight-bold pt-3">
 			<a className="navbar-brand text-white" href="#">
-				Navbar
+				Liberty Mall
 			</a>
 			<button
 				className="navbar-toggler"
@@ -23,17 +23,12 @@ export const Navbar = () => {
 					<ul className="navbar-nav text-white">
 						<li className="nav-item active">
 							<a className="nav-link text-white" href="#">
-								Categories <span className="sr-only">(current)</span>
+								Log In <span className="sr-only">(current)</span>
 							</a>
 						</li>
 						<li className="nav-item active">
 							<a className="nav-link text-white" href="#">
-								About Us
-							</a>
-						</li>
-						<li className="nav-item active">
-							<a className="nav-link text-white" href="#">
-								Testimonials
+								Register
 							</a>
 						</li>
 						<li className="nav-item active">
@@ -43,7 +38,17 @@ export const Navbar = () => {
 						</li>
 						<li className="nav-item active">
 							<a className="nav-link text-white" href="#">
-								Shipping
+								Contacts
+							</a>
+						</li>
+						<li className="nav-item active">
+							<a className="nav-link text-white" href="#">
+								About Us
+							</a>
+						</li>
+						<li className="nav-item active">
+							<a className="nav-link text-white" href="#">
+								Cart
 							</a>
 						</li>
 					</ul>
