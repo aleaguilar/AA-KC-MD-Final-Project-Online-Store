@@ -10,7 +10,6 @@ import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar";
 import { Searchbar } from "./component/searchbar";
 import { Cards } from "./component/cards";
-import { Subscription } from "./component/subscription";
 import { ActiveCampaignForm } from "./component/acintegration";
 import { Footer } from "./component/footer";
 

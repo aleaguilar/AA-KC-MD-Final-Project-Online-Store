@@ -15,6 +15,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 			]
 		},
 		actions: {
+			createContact: email => {
+				return fetch("https://libertyexpress.api-us1.com/api/3/contacts", {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+						"Api-Token": process.env.KEY
+					},
+					body: JSON.stringify({
+						contact: {
+							email: email
+						}
+					})
+				}).then(response => {
+					if (response.status >= 200 && response.status < 400) {
+						return response.json();
+					} else {
+						throw Error("Invalid request");
+					}
+				});
+			},
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
