@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/home.scss";
+import { LogInModal } from "./loginmodal";
 
 export const Navbar = () => {
+	const [modal, setModal] = useState(false);
+
 	return (
 		<nav className="navbar navbar-expand-lg navbar-light font-weight-bold pt-3">
 			<a className="navbar-brand text-white" href="#">
@@ -22,8 +25,8 @@ export const Navbar = () => {
 				<div className="rightside ml-auto">
 					<ul className="navbar-nav text-white">
 						<li className="nav-item active">
-							<a className="nav-link text-white" href="#">
-								Log In <span className="sr-only">(current)</span>
+							<a className="nav-link text-white" href="#" onClick={e => setModal(true)}>
+								Log In
 							</a>
 						</li>
 						<li className="nav-item active">
@@ -54,6 +57,7 @@ export const Navbar = () => {
 					</ul>
 				</div>
 			</div>
+			<LogInModal show={modal} onHide={e => setModal(false)} />
 		</nav>
 	);
 };
