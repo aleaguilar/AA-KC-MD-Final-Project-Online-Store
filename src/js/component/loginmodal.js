@@ -10,22 +10,52 @@ import ModalFooter from "react-bootstrap/ModalFooter";
 import Button from "react-bootstrap/Button";
 import ButtonToolbar from "react-bootstrap/ButtonToolbar";
 import PropTypes from "prop-types";
+import Form from "react-bootstrap/Form";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 
 export const LogInModal = props => {
 	const { onHide } = props;
 	return (
 		<Modal {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
-			<Modal.Header closeButton>
-				<Modal.Title id="contained-modal-title-vcenter">Modal heading</Modal.Title>
+			<Modal.Header className="modal-header">
+				<Modal.Title className="text-white" id="contained-modal-title-vcenter">
+					Liberty Mall
+				</Modal.Title>
 			</Modal.Header>
 			<Modal.Body>
-				<h4>Centered Modal</h4>
-				<p>
-					Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas
-					eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-				</p>
+				<Form>
+					<Form.Group as={Row} controlId="formHorizontalEmail">
+						<Form.Label column sm={2}>
+							Email
+						</Form.Label>
+						<Col sm={10}>
+							<Form.Control type="email" placeholder="Email" />
+						</Col>
+					</Form.Group>
+
+					<Form.Group as={Row} controlId="formHorizontalPassword">
+						<Form.Label column sm={2}>
+							Password
+						</Form.Label>
+						<Col sm={10}>
+							<Form.Control type="password" placeholder="Password" />
+						</Col>
+					</Form.Group>
+					<Form.Group as={Row} controlId="formHorizontalCheck">
+						<Col sm={{ span: 10, offset: 2 }}>
+							<Form.Check label="Remember me" />
+						</Col>
+					</Form.Group>
+
+					<Form.Group as={Row}>
+						<Col sm={{ span: 10, offset: 2 }}>
+							<Button type="submit">Sign in</Button>
+						</Col>
+					</Form.Group>
+				</Form>
 			</Modal.Body>
-			<Modal.Footer>
+			<Modal.Footer className="modal-footer">
 				<Button onClick={onHide}>Close</Button>
 			</Modal.Footer>
 		</Modal>
