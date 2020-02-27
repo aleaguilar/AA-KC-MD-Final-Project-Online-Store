@@ -12,6 +12,7 @@ import { Searchbar } from "./component/searchbar";
 import { Cards } from "./component/cards";
 import { ActiveCampaignForm } from "./component/acintegration";
 import { Footer } from "./component/footer";
+import { LogInModal } from "./component/loginmodal";
 
 //create your first component
 export const Layout = () => {
