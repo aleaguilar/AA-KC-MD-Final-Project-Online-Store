@@ -13,6 +13,7 @@ import { Cards } from "./component/cards";
 import { ActiveCampaignForm } from "./component/acintegration";
 import { Footer } from "./component/footer";
 import { LogInModal } from "./component/loginmodal";
+import { Registration } from "./component/registration";
 
 //create your first component
 export const Layout = () => {
@@ -31,6 +32,7 @@ export const Layout = () => {
 					<Switch>
 						<Route exact path="/" component={Home} />
 						<Route path="/demo" component={Demo} />
+						<Route path="/registration" component={Registration} />
 						<Route path="/single/:theid" component={Single} />
 						<Route render={() => <h1>Not found!</h1>} />
 					</Switch>
