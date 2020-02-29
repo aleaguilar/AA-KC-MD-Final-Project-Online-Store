@@ -3,15 +3,16 @@ import { Link } from "react-router-dom";
 import "../../styles/home.scss";
 import { LogInModal } from "./loginmodal";
 import { Registration } from "./registration";
+import { Home } from "../views/home";
 
 export const Navbar = () => {
 	const [modal, setModal] = useState(false);
 
 	return (
 		<nav className="navbar navbar-expand-lg navbar-light font-weight-bold pt-3">
-			<a className="navbar-brand text-white" href="#">
+			<Link className="link registration-link nav-link text-white" to="/">
 				Liberty Mall
-			</a>
+			</Link>
 			<button
 				className="navbar-toggler"
 				type="button"

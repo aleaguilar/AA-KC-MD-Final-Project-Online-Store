@@ -3,6 +3,7 @@ import "../../styles/home.scss";
 import { Searchbar } from "../component/searchbar";
 import { Cards } from "../component/cards";
 import { ActiveCampaignForm } from "../component/acintegration";
+
 export const Home = () => (
 	<div>
 		<Searchbar />
