@@ -26,14 +26,11 @@ export const Layout = () => {
 			<BrowserRouter>
 				<ScrollToTop>
 					<Navbar />
-					<Searchbar />
-					<Cards />
-					<ActiveCampaignForm />
 					<Switch>
 						<Route exact path="/" component={Home} />
-						<Route path="/demo" component={Demo} />
-						<Route path="/registration" component={Registration} />
-						<Route path="/single/:theid" component={Single} />
+						<Route exact path="/demo" component={Demo} />
+						<Route exact path="/registration" component={Registration} />
+						<Route exact path="/single/:theid" component={Single} />
 						<Route render={() => <h1>Not found!</h1>} />
 					</Switch>
 					<Footer />
