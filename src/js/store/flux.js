@@ -34,7 +34,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						throw Error("Invalid request");
 					}
 				});
-			} //, logInModal: () => {};
+			}
 		}
 	};
 };
