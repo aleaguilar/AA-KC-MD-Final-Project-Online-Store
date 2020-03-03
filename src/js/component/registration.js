@@ -21,7 +21,7 @@ export const Registration = () => {
 	};
 
 	return (
-		<div className="container p-4">
+		<div className="container  registration p-4">
 			<Form noValidate validated={validated} onSubmit={handleSubmit}>
 				<Form.Row>
 					<Form.Group as={Col} md="4" controlId="validationCustom01">
