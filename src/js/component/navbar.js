@@ -53,7 +53,7 @@ export const Navbar = () => {
 						</li>
 						<li className="nav-item active">
 							<a className="nav-link text-white" href="#">
-								Cart
+								<i className="fas fa-shopping-cart fa-lg"></i>
 							</a>
 						</li>
 					</ul>
