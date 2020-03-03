@@ -58,8 +58,8 @@ export const Navbar = () => {
 						</li>
 					</ul>
 				</div>
-			</div>
-			<LogInModal show={modal} onHide={e => setModal(false)} />
-		</nav>
+				<LogInModal show={modal} onHide={e => setModal(false)} />
+			</nav>
+		</div>
 	);
 };
