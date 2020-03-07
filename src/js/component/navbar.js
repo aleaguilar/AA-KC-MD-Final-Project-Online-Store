@@ -2,15 +2,17 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/home.scss";
 import { LogInModal } from "./loginmodal";
+import { Registration } from "./registration";
+import { Home } from "../views/home";
 
 export const Navbar = () => {
 	const [modal, setModal] = useState(false);
 
 	return (
 		<nav className="navbar navbar-expand-lg navbar-light font-weight-bold pt-3">
-			<a className="navbar-brand text-white" href="#">
+			<Link className="link registration-link nav-link text-white" to="/">
 				Liberty Mall
-			</a>
+			</Link>
 			<button
 				className="navbar-toggler"
 				type="button"
@@ -30,9 +32,9 @@ export const Navbar = () => {
 							</a>
 						</li>
 						<li className="nav-item active">
-							<a className="nav-link text-white" href="#">
+							<Link className="link registration-link nav-link text-white" to="/registration">
 								Register
-							</a>
+							</Link>
 						</li>
 						<li className="nav-item active">
 							<a className="nav-link text-white" href="#">
@@ -51,13 +53,13 @@ export const Navbar = () => {
 						</li>
 						<li className="nav-item active">
 							<a className="nav-link text-white" href="#">
-								Cart
+								<i className="fas fa-shopping-cart fa-lg"></i>
 							</a>
 						</li>
 					</ul>
 				</div>
+				<LogInModal show={modal} onHide={e => setModal(false)} />
 			</div>
-			<LogInModal show={modal} onHide={e => setModal(false)} />
 		</nav>
 	);
 };

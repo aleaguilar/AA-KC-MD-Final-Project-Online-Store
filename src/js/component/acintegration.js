@@ -1,6 +1,6 @@
 import React, { useState, useContext, Component } from "react";
 import { Link } from "react-router-dom";
-import { Context } from "../store/appContext"; //I think the error was that I'm calling createContact that is stored as an action in Context but I wasn't importing context.
+import { Context } from "../store/appContext"; //I think the error was that I'm calling createContact that is stored as an action in Context but I wasn't importing context. /* <p>Be always on the loop!</p>
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import "../../styles/home.scss";
