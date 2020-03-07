@@ -99,9 +99,11 @@ export const Registration = () => {
 					/>
 				</Form.Group>
 				<Button
-					type="button"
+					type="submit"
 					onClick={() => {
-						console.log({ firstname }, { lastname }, { state });
+						{
+						}
+						console.log({ firstname }, { lastname }, { email }, { city });
 					}}>
 					Submit
 				</Button>
