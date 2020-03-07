@@ -16,9 +16,10 @@ export const Registration = () => {
 	const [address, setAddress] = useState(false);
 	const [city, setCity] = useState(false);
 	const [country, setCountry] = useState(false);
-	const [password, setpassword] = useState(false);
+	const [password, setPassword] = useState(false);
 
 	const handleSubmit = event => {
+		const { store, actions } = useContext(Context);
 		const form = event.currentTarget;
 		if (form.checkValidity() === false) {
 			event.preventDefault();
@@ -52,7 +53,19 @@ export const Registration = () => {
 						/>
 						<Form.Control.Feedback>Looks good!</Form.Control.Feedback>
 					</Form.Group>
-					<Form.Group as={Col} md="4" controlId="validationEmail">
+					<Form.Group as={Col} md="4" controlId="formBasicPassword">
+						<Form.Label>Password</Form.Label>
+						<Form.Control
+							type="text"
+							placeholder="Password"
+							required
+							onChange={e => setPassword(e.target.value)}
+						/>
+						<Form.Control.Feedback type="invalid">Please provide a password.</Form.Control.Feedback>
+					</Form.Group>
+				</Form.Row>
+				<Form.Row>
+					<Form.Group as={Col} md="6" controlId="validationEmail">
 						<Form.Label>E-mail</Form.Label>
 						<InputGroup>
 							<Form.Control
@@ -65,14 +78,19 @@ export const Registration = () => {
 							<Form.Control.Feedback type="invalid">Please insert valid e-mail.</Form.Control.Feedback>
 						</InputGroup>
 					</Form.Group>
-				</Form.Row>
-				<Form.Row>
-                    <Form.Group as={Col} md="6" controlId="validationCustom03">
+					<Form.Group as={Col} md="6" controlId="validationCustom03">
 						<Form.Label>Address</Form.Label>
-						<Form.Control type="text" placeholder="Address" required onChange={e => setAddress(e.target.value)} />
+						<Form.Control
+							type="text"
+							placeholder="Address"
+							required
+							onChange={e => setAddress(e.target.value)}
+						/>
 						<Form.Control.Feedback type="invalid">Please provide a valid address.</Form.Control.Feedback>
 					</Form.Group>
-					<Form.Group as={Col} md="6" controlId="validationCustom03">
+				</Form.Row>
+				<Form.Row>
+					<Form.Group as={Col} md="3" controlId="validationCustom03">
 						<Form.Label>City</Form.Label>
 						<Form.Control type="text" placeholder="City" required onChange={e => setCity(e.target.value)} />
 						<Form.Control.Feedback type="invalid">Please provide a valid city.</Form.Control.Feedback>
@@ -86,16 +104,6 @@ export const Registration = () => {
 							onChange={e => setCountry(e.target.value)}
 						/>
 						<Form.Control.Feedback type="invalid">Please provide a valid country.</Form.Control.Feedback>
-					</Form.Group>
-					<Form.Group as={Col} md="3" controlId="validationCustom05">
-						<Form.Label>Password</Form.Label>
-						<Form.Control
-							type="text"
-							placeholder="Password"
-							required
-							onChange={e => setPassword(e.target.value)}
-						/>
-						<Form.Control.Feedback type="invalid">Please provide a password.</Form.Control.Feedback>
 					</Form.Group>
 				</Form.Row>
 				<Form.Group>

@@ -41,20 +41,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 						"Content-Type": "application/json"
 					},
 					body: JSON.stringify({
-						new_user: {
-							name: firstname,
-							lastname: lastname,
-                            email: email,
-                            address: address,
-							city: city,
-							country: country,
-							password: password
-						}
+						name: name,
+						lastname: lastname,
+						email: email,
+						address: address,
+						city: city,
+						country: country,
+						password: password
 					})
 				})
 					.then(resp => resp.json())
 					.then(response => {
-						setStore({ new_user });
+						setStore({ user: body });
 					});
 			}
 		}
