@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/home.scss";
+import { Confirmation } from "./confirmation";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
