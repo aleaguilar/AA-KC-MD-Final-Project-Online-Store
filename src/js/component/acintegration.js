@@ -16,21 +16,17 @@ export const ActiveCampaignForm = () => {
 			<div className="row">
 				<div className="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 col-12">
 					<div className="_form_3" />
-					<p>Be always on the loop!</p>
+					{/* <p>Be always on the loop!</p> */}
 					<p>Subscribe to our email list to get our latest offers</p>
 					<p>Email (Required)</p>
 					<input placeholder="Your email here" onChange={e => setEmail(e.target.value)} />
 					<button
 						onClick={() => {
-							createContact(email)
-								.then(() => setMessage("Thank you for subscribing!"))
-								.catch(err => {
-									console.log(err);
-									setMessage(err.message);
-								});
+							actions.createContact(email);
 						}}>
 						Subscribe
 					</button>
+					{store.message != null ? <div>{store.message}</div> : null}
 				</div>
 			</div>
 		</>
