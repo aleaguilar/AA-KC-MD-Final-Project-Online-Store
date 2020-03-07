@@ -9,6 +9,12 @@ import InputGroup from "react-bootstrap/InputGroup";
 
 export const Registration = () => {
 	const [validated, setValidated] = useState(false);
+	const [firstname, setFirstname] = useState(false);
+	const [lastname, setLastname] = useState(false);
+	const [email, setEmail] = useState(false);
+	const [city, setCity] = useState(false);
+	const [state, setState] = useState(false);
+	const [zipcode, setZipcode] = useState(false);
 
 	const handleSubmit = event => {
 		const form = event.currentTarget;
@@ -26,7 +32,12 @@ export const Registration = () => {
 				<Form.Row>
 					<Form.Group as={Col} md="4" controlId="validationCustom01">
 						<Form.Label>First name</Form.Label>
-						<Form.Control required type="text" placeholder="First name" />
+						<Form.Control
+							required
+							type="text"
+							placeholder="First name"
+							onChange={e => setFirstname(e.target.value)}
+						/>
 						<Form.Control.Feedback>Looks good!</Form.Control.Feedback>
 					</Form.Group>
 					<Form.Group as={Col} md="4" controlId="validationCustom02">
@@ -34,19 +45,16 @@ export const Registration = () => {
 						<Form.Control required type="text" placeholder="Last name" />
 						<Form.Control.Feedback>Looks good!</Form.Control.Feedback>
 					</Form.Group>
-					<Form.Group as={Col} md="4" controlId="validationCustomUsername">
-						<Form.Label>Username</Form.Label>
+					<Form.Group as={Col} md="4" controlId="validationEmail">
+						<Form.Label>E-mail</Form.Label>
 						<InputGroup>
-							<InputGroup.Prepend>
-								<InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
-							</InputGroup.Prepend>
 							<Form.Control
 								type="text"
-								placeholder="Username"
+								placeholder="E-mail"
 								aria-describedby="inputGroupPrepend"
 								required
 							/>
-							<Form.Control.Feedback type="invalid">Please choose a username.</Form.Control.Feedback>
+							<Form.Control.Feedback type="invalid">Please insert valid e-mail.</Form.Control.Feedback>
 						</InputGroup>
 					</Form.Group>
 				</Form.Row>
@@ -74,7 +82,13 @@ export const Registration = () => {
 						feedback="You must agree before submitting."
 					/>
 				</Form.Group>
-				<Button type="submit">Submit</Button>
+				<Button
+					type="submit"
+					onClick={() => {
+						console.log({ firstname });
+					}}>
+					Submit
+				</Button>
 			</Form>
 		</div>
 	);
