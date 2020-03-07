@@ -1,6 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+			message: "",
 			demo: [
 				{
 					title: "FIRST",
@@ -16,25 +17,22 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 		actions: {
 			createContact: email => {
-				return fetch("https://libertyexpress.api-us1.com/api/3/contacts", {
+				fetch("https://3000-b584752f-7982-4bf0-83ee-68da25c07f9f.ws-us02.gitpod.io/subscribe", {
 					method: "POST",
 					headers: {
-						"Content-Type": "application/json",
-						"Api-Token": process.env.KEY
+						"Content-Type": "application/json"
 					},
 					body: JSON.stringify({
 						contact: {
 							email: email
 						}
 					})
-				}).then(response => {
-					if (response.status >= 200 && response.status < 400) {
-						return response.json();
-					} else {
-						throw Error("Invalid request");
-					}
-				});
-			}
+				})
+					.then(resp => resp.json())
+					.then(response => {
+						setStore({ message: response.message });
+					});
+			} //, logInModal: () => {};
 		}
 	};
 };
