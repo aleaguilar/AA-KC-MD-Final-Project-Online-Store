@@ -14,6 +14,7 @@ import { ActiveCampaignForm } from "./component/acintegration";
 import { Footer } from "./component/footer";
 import { LogInModal } from "./component/loginmodal";
 import { Registration } from "./component/registration";
+import { Confirmation } from "./component/confirmation";
 
 //create your first component
 export const Layout = () => {
@@ -30,6 +31,7 @@ export const Layout = () => {
 						<Route exact path="/" component={Home} />
 						<Route exact path="/demo" component={Demo} />
 						<Route exact path="/registration" component={Registration} />
+						<Route exact path="/confirmation" component={Confirmation} />
 						<Route exact path="/single/:theid" component={Single} />
 						<Route render={() => <h1>Not found!</h1>} />
 					</Switch>

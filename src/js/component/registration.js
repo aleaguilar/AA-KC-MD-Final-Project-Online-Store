@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/home.scss";
+import { Confirmation } from "./confirmation";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -9,8 +10,16 @@ import InputGroup from "react-bootstrap/InputGroup";
 
 export const Registration = () => {
 	const [validated, setValidated] = useState(false);
+	const [name, setName] = useState(false);
+	const [lastname, setLastname] = useState(false);
+	const [email, setEmail] = useState(false);
+	const [address, setAddress] = useState(false);
+	const [city, setCity] = useState(false);
+	const [country, setCountry] = useState(false);
+	const [password, setPassword] = useState(false);
 
 	const handleSubmit = event => {
+		const { store, actions } = useContext(Context);
 		const form = event.currentTarget;
 		if (form.checkValidity() === false) {
 			event.preventDefault();
@@ -26,45 +35,75 @@ export const Registration = () => {
 				<Form.Row>
 					<Form.Group as={Col} md="4" controlId="validationCustom01">
 						<Form.Label>First name</Form.Label>
-						<Form.Control required type="text" placeholder="First name" />
+						<Form.Control
+							required
+							type="text"
+							placeholder="First name"
+							onChange={e => setName(e.target.value)}
+						/>
 						<Form.Control.Feedback>Looks good!</Form.Control.Feedback>
 					</Form.Group>
 					<Form.Group as={Col} md="4" controlId="validationCustom02">
 						<Form.Label>Last name</Form.Label>
-						<Form.Control required type="text" placeholder="Last name" />
+						<Form.Control
+							required
+							type="text"
+							placeholder="Last name"
+							onChange={e => setLastname(e.target.value)}
+						/>
 						<Form.Control.Feedback>Looks good!</Form.Control.Feedback>
 					</Form.Group>
-					<Form.Group as={Col} md="4" controlId="validationCustomUsername">
-						<Form.Label>Username</Form.Label>
-						<InputGroup>
-							<InputGroup.Prepend>
-								<InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
-							</InputGroup.Prepend>
-							<Form.Control
-								type="text"
-								placeholder="Username"
-								aria-describedby="inputGroupPrepend"
-								required
-							/>
-							<Form.Control.Feedback type="invalid">Please choose a username.</Form.Control.Feedback>
-						</InputGroup>
+					<Form.Group as={Col} md="4" controlId="formBasicPassword">
+						<Form.Label>Password</Form.Label>
+						<Form.Control
+							type="text"
+							placeholder="Password"
+							required
+							onChange={e => setPassword(e.target.value)}
+						/>
+						<Form.Control.Feedback type="invalid">Please provide a password.</Form.Control.Feedback>
 					</Form.Group>
 				</Form.Row>
 				<Form.Row>
+					<Form.Group as={Col} md="6" controlId="validationEmail">
+						<Form.Label>E-mail</Form.Label>
+						<InputGroup>
+							<Form.Control
+								type="text"
+								placeholder="E-mail"
+								aria-describedby="inputGroupPrepend"
+								required
+								onChange={e => setEmail(e.target.value)}
+							/>
+							<Form.Control.Feedback type="invalid">Please insert valid e-mail.</Form.Control.Feedback>
+						</InputGroup>
+					</Form.Group>
 					<Form.Group as={Col} md="6" controlId="validationCustom03">
+						<Form.Label>Address</Form.Label>
+						<Form.Control
+							type="text"
+							placeholder="Address"
+							required
+							onChange={e => setAddress(e.target.value)}
+						/>
+						<Form.Control.Feedback type="invalid">Please provide a valid address.</Form.Control.Feedback>
+					</Form.Group>
+				</Form.Row>
+				<Form.Row>
+					<Form.Group as={Col} md="3" controlId="validationCustom03">
 						<Form.Label>City</Form.Label>
-						<Form.Control type="text" placeholder="City" required />
+						<Form.Control type="text" placeholder="City" required onChange={e => setCity(e.target.value)} />
 						<Form.Control.Feedback type="invalid">Please provide a valid city.</Form.Control.Feedback>
 					</Form.Group>
 					<Form.Group as={Col} md="3" controlId="validationCustom04">
-						<Form.Label>State</Form.Label>
-						<Form.Control type="text" placeholder="State" required />
-						<Form.Control.Feedback type="invalid">Please provide a valid state.</Form.Control.Feedback>
-					</Form.Group>
-					<Form.Group as={Col} md="3" controlId="validationCustom05">
-						<Form.Label>Zip</Form.Label>
-						<Form.Control type="text" placeholder="Zip" required />
-						<Form.Control.Feedback type="invalid">Please provide a valid zip.</Form.Control.Feedback>
+						<Form.Label>Country</Form.Label>
+						<Form.Control
+							type="text"
+							placeholder="Country"
+							required
+							onChange={e => setCountry(e.target.value)}
+						/>
+						<Form.Control.Feedback type="invalid">Please provide a valid country.</Form.Control.Feedback>
 					</Form.Group>
 				</Form.Row>
 				<Form.Group>
@@ -74,7 +113,14 @@ export const Registration = () => {
 						feedback="You must agree before submitting."
 					/>
 				</Form.Group>
-				<Button type="submit">Submit</Button>
+				{/* if/else statement to render confirmation page on submit? */}
+				<Button
+					type="submit"
+					onClick={() => {
+						actions.createUser(name, lastname, email, address, city, country, password);
+					}}>
+					Submit
+				</Button>
 			</Form>
 		</div>
 	);
