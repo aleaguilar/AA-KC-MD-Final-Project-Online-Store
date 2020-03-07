@@ -42,12 +42,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 					},
 					body: JSON.stringify({
 						new_user: {
-							firstname: firstname,
+							name: firstname,
 							lastname: lastname,
-							email: email,
+                            email: email,
+                            address: address,
 							city: city,
-							state: state,
-							zipcode: zipcode
+							country: country,
+							password: password
 						}
 					})
 				})
