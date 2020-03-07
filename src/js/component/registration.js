@@ -42,7 +42,7 @@ export const Registration = () => {
 					</Form.Group>
 					<Form.Group as={Col} md="4" controlId="validationCustom02">
 						<Form.Label>Last name</Form.Label>
-						<Form.Control required type="text" placeholder="Last name" />
+						<Form.Control required type="text" placeholder="Last name" onChange={e => setLastname(e.target.value)}/>
 						<Form.Control.Feedback>Looks good!</Form.Control.Feedback>
 					</Form.Group>
 					<Form.Group as={Col} md="4" controlId="validationEmail">
@@ -52,7 +52,8 @@ export const Registration = () => {
 								type="text"
 								placeholder="E-mail"
 								aria-describedby="inputGroupPrepend"
-								required
+                                required
+                                onChange={e => setEmail(e.target.value)}
 							/>
 							<Form.Control.Feedback type="invalid">Please insert valid e-mail.</Form.Control.Feedback>
 						</InputGroup>
@@ -61,17 +62,17 @@ export const Registration = () => {
 				<Form.Row>
 					<Form.Group as={Col} md="6" controlId="validationCustom03">
 						<Form.Label>City</Form.Label>
-						<Form.Control type="text" placeholder="City" required />
+						<Form.Control type="text" placeholder="City" required onChange={e => setCity(e.target.value)}/>
 						<Form.Control.Feedback type="invalid">Please provide a valid city.</Form.Control.Feedback>
 					</Form.Group>
 					<Form.Group as={Col} md="3" controlId="validationCustom04">
 						<Form.Label>State</Form.Label>
-						<Form.Control type="text" placeholder="State" required />
+						<Form.Control type="text" placeholder="State" required onChange={e => setState(e.target.value)}/>
 						<Form.Control.Feedback type="invalid">Please provide a valid state.</Form.Control.Feedback>
 					</Form.Group>
 					<Form.Group as={Col} md="3" controlId="validationCustom05">
 						<Form.Label>Zip</Form.Label>
-						<Form.Control type="text" placeholder="Zip" required />
+						<Form.Control type="text" placeholder="Zip" required onChange={e => setZipcode(e.target.value)}/>
 						<Form.Control.Feedback type="invalid">Please provide a valid zip.</Form.Control.Feedback>
 					</Form.Group>
 				</Form.Row>
@@ -85,7 +86,7 @@ export const Registration = () => {
 				<Button
 					type="submit"
 					onClick={() => {
-						console.log({ firstname });
+						console.log({ firstname }, { lastname}, {state});
 					}}>
 					Submit
 				</Button>
