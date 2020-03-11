@@ -1,3 +1,5 @@
+const apiHost = "https://3000-ad5850ef-52aa-48db-a114-3185fd8c6041.ws-us02.gitpod.io";
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -19,7 +21,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 		actions: {
 			createContact: email => {
-				fetch("https://3000-b584752f-7982-4bf0-83ee-68da25c07f9f.ws-us02.gitpod.io/subscribe", {
+				fetch(apiHost+"/subscribe", {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json"
@@ -78,5 +80,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 		}
 	};
 };
+
 
 export default getState;
