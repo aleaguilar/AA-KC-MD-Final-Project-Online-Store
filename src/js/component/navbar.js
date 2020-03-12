@@ -19,7 +19,7 @@ export const NavbarNew = () => {
 			<Navbar.Toggle aria-controls="basic-navbar-nav" />
 			<Navbar.Collapse id="basic-navbar-nav">
 				<div className="rightside ml-auto">
-					<Nav className="collapse navbar-collapse text-white">
+					<Nav className="text-white">
 						<Nav.Link className="nav-link text-white" href="#" onClick={e => setModal(true)}>
 							Log In
 						</Nav.Link>
