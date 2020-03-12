@@ -6,22 +6,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			message: "",
 			create_user: "",
 			token: ""
-			// demo: [
-			// 	{
-			// 		title: "FIRST",
-			// 		background: "white",
-			// 		initial: "white"
-			// 	},
-			// 	{
-			// 		title: "SECOND",
-			// 		background: "white",
-			// 		initial: "white"
-			// 	}
-			// ]
 		},
 		actions: {
 			createContact: email => {
-				fetch(apiHost+"/subscribe", {
+				fetch(apiHost + "/subscribe", {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json"
@@ -39,7 +27,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			createUser: (name, lastname, email, address, city, country, password) => {
 				let store = getStore();
-				fetch("https://3000-b584752f-7982-4bf0-83ee-68da25c07f9f.ws-us02.gitpod.io/register", {
+				fetch(apiHost + "/register", {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json"
@@ -62,7 +50,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			login: (email, password) => {
 				let store = getStore();
-				fetch("https://3000-b584752f-7982-4bf0-83ee-68da25c07f9f.ws-us02.gitpod.io/login", {
+				fetch(apiHost + "/login", {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json"
@@ -80,6 +68,5 @@ const getState = ({ getStore, getActions, setStore }) => {
 		}
 	};
 };
-
 
 export default getState;
