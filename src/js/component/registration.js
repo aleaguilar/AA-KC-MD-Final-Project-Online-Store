@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/home.scss";
 import { Confirmation } from "./confirmation";
@@ -7,8 +7,10 @@ import FormControl from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import InputGroup from "react-bootstrap/InputGroup";
+import { Context } from "../store/appContext";
 
 export const Registration = () => {
+	const { store, actions } = useContext(Context);
 	const [validated, setValidated] = useState(false);
 	const [name, setName] = useState(false);
 	const [lastname, setLastname] = useState(false);
@@ -19,7 +21,6 @@ export const Registration = () => {
 	const [password, setPassword] = useState(false);
 
 	const handleSubmit = event => {
-		const { store, actions } = useContext(Context);
 		const form = event.currentTarget;
 		if (form.checkValidity() === false) {
 			event.preventDefault();
@@ -27,11 +28,13 @@ export const Registration = () => {
 		}
 
 		setValidated(true);
+
+		actions.createUser(name, lastname, email, address, city, country, password);
 	};
 
 	return (
 		<div className="container p-4">
-			<Form noValidate validated={validated} onSubmit={handleSubmit}>
+			<Form noValidate validated={validated} onSubmit={e => handleSubmit(e)}>
 				<Form.Row>
 					<Form.Group as={Col} md="4" controlId="validationCustom01">
 						<Form.Label>First name</Form.Label>
@@ -56,7 +59,7 @@ export const Registration = () => {
 					<Form.Group as={Col} md="4" controlId="formBasicPassword">
 						<Form.Label>Password</Form.Label>
 						<Form.Control
-							type="password"
+							type="text"
 							placeholder="Password"
 							required
 							onChange={e => setPassword(e.target.value)}
@@ -114,13 +117,7 @@ export const Registration = () => {
 					/>
 				</Form.Group>
 				{/* if/else statement to render confirmation page on submit? */}
-				<Button
-					type="submit"
-					onClick={() => {
-						actions.createUser(name, lastname, email, address, city, country, password);
-					}}>
-					Submit
-				</Button>
+				<Button type="submit">Submit</Button>
 			</Form>
 		</div>
 	);

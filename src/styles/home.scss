@@ -71,6 +71,8 @@ button {
     list-style-type: none;
     display: inline-block;
     text-align:left;  
+    width: 100%;
+
 }
 .placeholder {
     width: 500px;
@@ -92,7 +94,10 @@ button {
 .common-objections h1 {
     padding-bottom: 20px;
 }
-
+.registation{
+    margin-top: 10%;
+    margin-bottom: 5%;
+}
 .registration-link {
     text-decoration: none !important;
 }
