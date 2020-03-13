@@ -59,7 +59,7 @@ export const Registration = () => {
 					<Form.Group as={Col} md="4" controlId="formBasicPassword">
 						<Form.Label>Password</Form.Label>
 						<Form.Control
-							type="text"
+							type="password"
 							placeholder="Password"
 							required
 							onChange={e => setPassword(e.target.value)}
