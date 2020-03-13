@@ -17,7 +17,17 @@ export const Cards = () => (
 							src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTJ1fRDjhT0ZzxT8RkA5uC2Y3T7zrU_Tjm0Xf4Nt5y3XCD4pDaK"
 						/>
 						<Card.Body>
-							<Card.Text>Best selling item #1</Card.Text>
+							<Card.Text>
+								<b>Best selling item #1</b>
+							</Card.Text>
+							<Card.Text>
+								<b>
+									Price:<span>$</span>300
+								</b>
+							</Card.Text>
+							<Button className="bestselling-button" variant="success">
+								<b>Add To Cart</b>
+							</Button>
 						</Card.Body>
 					</Card>
 					<Card className="col-xl-3 col-lg-4 col-md-6 col-12">
@@ -26,7 +36,17 @@ export const Cards = () => (
 							src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTJ1fRDjhT0ZzxT8RkA5uC2Y3T7zrU_Tjm0Xf4Nt5y3XCD4pDaK"
 						/>
 						<Card.Body>
-							<Card.Text>Best selling item #2</Card.Text>
+							<Card.Text>
+								<b>Best selling item #2</b>
+							</Card.Text>
+							<Card.Text>
+								<b>
+									Price:<span>$</span>100
+								</b>
+							</Card.Text>
+							<Button className="bestselling-button" variant="success">
+								<b>Add To Cart</b>
+							</Button>
 						</Card.Body>
 					</Card>
 					<Card className="col-xl-3 col-lg-4 col-md-6 col-12">
@@ -35,7 +55,17 @@ export const Cards = () => (
 							src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTJ1fRDjhT0ZzxT8RkA5uC2Y3T7zrU_Tjm0Xf4Nt5y3XCD4pDaK"
 						/>
 						<Card.Body>
-							<Card.Text>Best selling item #3</Card.Text>
+							<Card.Text>
+								<b>Best selling item #3</b>
+							</Card.Text>
+							<Card.Text>
+								<b>
+									Price:<span>$</span>500
+								</b>
+							</Card.Text>
+							<Button className="bestselling-button" variant="success">
+								<b>Add To Cart</b>
+							</Button>
 						</Card.Body>
 					</Card>
 					<Card className="col-xl-3 col-lg-4 col-md-6 col-12">
@@ -44,7 +74,17 @@ export const Cards = () => (
 							src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTJ1fRDjhT0ZzxT8RkA5uC2Y3T7zrU_Tjm0Xf4Nt5y3XCD4pDaK"
 						/>
 						<Card.Body>
-							<Card.Text>Best selling item #4</Card.Text>
+							<Card.Text>
+								<b>Best selling item #4</b>
+							</Card.Text>
+							<Card.Text>
+								<b>
+									Price:<span>$</span>700
+								</b>
+							</Card.Text>
+							<Button className="bestselling-button" variant="success">
+								<b>Add To Cart</b>
+							</Button>
 						</Card.Body>
 					</Card>
 				</CardDeck>
@@ -62,7 +102,17 @@ export const Cards = () => (
 							src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTcKkwXmdEWiDHhy-ASGNmT3Uv7skadgN3qdb3GRfwJ4Khvbh0o"
 						/>
 						<Card.Body>
-							<Card.Text>Featured item #1</Card.Text>
+							<Card.Text>
+								<b>Futureed item #1</b>
+							</Card.Text>
+							<Card.Text>
+								<b>
+									Price:<span>$</span>300
+								</b>
+							</Card.Text>
+							<Button className="bestselling-button" variant="success">
+								<b>Add To Cart</b>
+							</Button>
 						</Card.Body>
 					</Card>
 					<Card>
@@ -71,7 +121,17 @@ export const Cards = () => (
 							src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTcKkwXmdEWiDHhy-ASGNmT3Uv7skadgN3qdb3GRfwJ4Khvbh0o"
 						/>
 						<Card.Body>
-							<Card.Text>Featured item #2</Card.Text>
+							<Card.Text>
+								<b>Futureed item #2</b>
+							</Card.Text>
+							<Card.Text>
+								<b>
+									Price:<span>$</span>30
+								</b>
+							</Card.Text>
+							<Button className="bestselling-button" variant="success">
+								<b>Add To Cart</b>
+							</Button>
 						</Card.Body>
 					</Card>
 					<Card>
@@ -80,7 +140,17 @@ export const Cards = () => (
 							src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTcKkwXmdEWiDHhy-ASGNmT3Uv7skadgN3qdb3GRfwJ4Khvbh0o"
 						/>
 						<Card.Body>
-							<Card.Text>Featured item #3</Card.Text>
+							<Card.Text>
+								<b>Futureed item #3</b>
+							</Card.Text>
+							<Card.Text>
+								<b>
+									Price:<span>$</span>75
+								</b>
+							</Card.Text>
+							<Button className="bestselling-button" variant="success">
+								<b>Add To Cart</b>
+							</Button>
 						</Card.Body>
 					</Card>
 					<Card>
@@ -89,7 +159,17 @@ export const Cards = () => (
 							src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTcKkwXmdEWiDHhy-ASGNmT3Uv7skadgN3qdb3GRfwJ4Khvbh0o"
 						/>
 						<Card.Body>
-							<Card.Text>Featured item #4</Card.Text>
+							<Card.Text>
+								<b>Futureed item #4</b>
+							</Card.Text>
+							<Card.Text>
+								<b>
+									Price:<span>$</span>35
+								</b>
+							</Card.Text>
+							<Button className="bestselling-button" variant="success">
+								<b>Add To Cart</b>
+							</Button>
 						</Card.Body>
 					</Card>
 				</CardDeck>

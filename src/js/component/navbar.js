@@ -52,9 +52,8 @@ export const Navbar = () => {
 							</a>
 						</li>
 						<li className="nav-item active">
-							<a className="nav-link text-white" href="#">
-								<i className="fas fa-shopping-cart fa-lg"></i>
-							</a>
+							<Link className="fas fa-shopping-cart fa-lg text-white" to="/cart"></Link>
+							<a className="nav-link text-white"></a>
 						</li>
 					</ul>
 				</div>
