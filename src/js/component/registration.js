@@ -59,7 +59,7 @@ export const Registration = () => {
 					<Form.Group as={Col} md="4" controlId="formBasicPassword">
 						<Form.Label>Password</Form.Label>
 						<Form.Control
-							type="text"
+							type="password"
 							placeholder="Password"
 							required
 							onChange={e => setPassword(e.target.value)}
@@ -119,6 +119,7 @@ export const Registration = () => {
 				{/* if/else statement to render confirmation page on submit? */}
 				<Button type="submit">Submit</Button>
 			</Form>
+			<Link to="/registration/confirmation">Confirmation</Link>
 		</div>
 	);
 };
