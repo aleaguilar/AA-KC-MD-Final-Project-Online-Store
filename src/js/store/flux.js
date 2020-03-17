@@ -1,4 +1,6 @@
-const apiHost = "https://3000-ad5850ef-52aa-48db-a114-3185fd8c6041.ws-us02.gitpod.io";
+import { Redirect } from "react-router-dom";
+
+const apiHost = "https://3000-c6b31b67-6c76-49bb-9120-b18ad58d444a.ws-us02.gitpod.io/";
 
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
@@ -25,9 +27,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 						setStore({ message: response.message });
 					});
 			},
-			createUser: (name, lastname, email, address, city, country, password) => {
+			createUser: (name, lastname, email, address, city, country, password, history) => {
 				let store = getStore();
-				fetch(apiHost + "/register", {
+				fetch(apiHost + "register", {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json"
@@ -45,8 +47,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(resp => resp.json())
 					.then(response => {
 						setStore({ create_user: response.message });
-						// console.log(store.create_user);
-					});
+					})
+					.then(() => history.push("/registration/confirmation"));
 			},
 			login: (email, password) => {
 				let store = getStore();
