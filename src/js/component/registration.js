@@ -8,8 +8,9 @@ import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import InputGroup from "react-bootstrap/InputGroup";
 import { Context } from "../store/appContext";
+import PropTypes from "prop-types";
 
-export const Registration = () => {
+export const Registration = props => {
 	const { store, actions } = useContext(Context);
 	const [validated, setValidated] = useState(false);
 	const [name, setName] = useState(false);
@@ -21,15 +22,13 @@ export const Registration = () => {
 	const [password, setPassword] = useState(false);
 
 	const handleSubmit = event => {
-		const form = event.currentTarget;
-		if (form.checkValidity() === false) {
-			event.preventDefault();
-			event.stopPropagation();
+		const form = event.target;
+		event.preventDefault();
+		event.stopPropagation();
+		if (form.checkValidity() === true) {
+			setValidated(true);
+			actions.createUser(name, lastname, email, address, city, country, password, props.history);
 		}
-
-		setValidated(true);
-
-		actions.createUser(name, lastname, email, address, city, country, password);
 	};
 
 	return (
@@ -72,7 +71,7 @@ export const Registration = () => {
 						<Form.Label>E-mail</Form.Label>
 						<InputGroup>
 							<Form.Control
-								type="text"
+								type="email"
 								placeholder="E-mail"
 								aria-describedby="inputGroupPrepend"
 								required
@@ -116,11 +115,10 @@ export const Registration = () => {
 						feedback="You must agree before submitting."
 					/>
 				</Form.Group>
-				{/* if/else statement to render confirmation page on submit? */}
 				<Button type="submit">Submit</Button>
 			</Form>
+			<Link to="/registration/confirmation">Confirmation</Link>
 		</div>
 	);
 };
-
-<Registration />;
+Registration.propTypes = { history: PropTypes.object };

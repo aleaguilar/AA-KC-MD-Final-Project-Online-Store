@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "../../styles/home.scss";
 import { LogInModal } from "./loginmodal";
 import { Registration } from "./registration";
+import { Confirmation } from "./confirmation";
 import { Home } from "../views/home";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
