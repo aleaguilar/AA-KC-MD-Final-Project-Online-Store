@@ -117,7 +117,6 @@ export const Registration = props => {
 				</Form.Group>
 				<Button type="submit">Submit</Button>
 			</Form>
-			<Link to="/registration/confirmation">Confirmation</Link>
 		</div>
 	);
 };

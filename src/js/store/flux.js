@@ -1,6 +1,6 @@
 import { Redirect } from "react-router-dom";
 
-const apiHost = "https://3000-c6b31b67-6c76-49bb-9120-b18ad58d444a.ws-us02.gitpod.io/";
+const apiHost = "https://3000-ec28e99f-079c-4f95-8f5f-297b1cb48cc8.ws-us02.gitpod.io";
 
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
@@ -29,7 +29,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			createUser: (name, lastname, email, address, city, country, password, history) => {
 				let store = getStore();
-				fetch(apiHost + "register", {
+				fetch(apiHost + "/register", {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json"

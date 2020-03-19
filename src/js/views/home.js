@@ -10,7 +10,7 @@ export const Home = () => (
 		<Cards />
 		<ActiveCampaignForm />
 		<div className="container">
-			<div calssName="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 col-12">
+			<div className="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 col-12">
 				<div className="common-objections m-0 p-0">
 					<h1>Common Objections</h1>
 					<p>
