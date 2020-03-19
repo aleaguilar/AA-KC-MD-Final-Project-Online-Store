@@ -32,12 +32,8 @@ export const Layout = () => {
 						<Route exact path="/" component={Home} />
 						<Route exact path="/demo" component={Demo} />
 						<Route exact path="/registration" component={Registration} />
-<<<<<<< HEAD
 						<Route exact path="/confirmation" component={Confirmation} />
 						<Route exact path="/cart" component={Cart} />
-=======
-						<Route exact path="/registration/confirmation" component={Confirmation} />
->>>>>>> origin
 						<Route exact path="/single/:theid" component={Single} />
 						<Route render={() => <h1>Not found!</h1>} />
 					</Switch>
