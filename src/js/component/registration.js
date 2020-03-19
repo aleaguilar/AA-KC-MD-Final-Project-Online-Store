@@ -32,7 +32,7 @@ export const Registration = props => {
 	};
 
 	return (
-		<div className="container p-4">
+		<div className="container p-4" style={{ marginTop: "5rem" }}>
 			<Form noValidate validated={validated} onSubmit={e => handleSubmit(e)}>
 				<Form.Row>
 					<Form.Group as={Col} md="4" controlId="validationCustom01">
