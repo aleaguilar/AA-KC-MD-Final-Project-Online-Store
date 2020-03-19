@@ -60,13 +60,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			],
 			create_user: "",
-<<<<<<< HEAD
 			token: "",
 			cart: [],
 			cartTotal: 0
-=======
-			token: ""
->>>>>>> origin
 		},
 		actions: {
 			createContact: email => {
