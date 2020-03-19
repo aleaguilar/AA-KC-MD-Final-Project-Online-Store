@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/home.scss";
 import { LogInModal } from "./loginmodal";
 import { Registration } from "./registration";
 import { Home } from "../views/home";
+import { Context } from "../store/appContext";
+import Badge from "react-bootstrap/Badge";
 
 export const Navbar = () => {
 	const [modal, setModal] = useState(false);
+	const { store, actions } = useContext(Context);
 
 	return (
 		<nav className=" sticky navbar navbar-expand-lg navbar-light font-weight-bold pt-3">
@@ -52,8 +55,9 @@ export const Navbar = () => {
 							</a>
 						</li>
 						<li className="nav-item active">
-							<Link className="fas fa-shopping-cart fa-lg text-white" to="/cart"></Link>
-							<a className="nav-link text-white"></a>
+							<Link className="fas fa-shopping-cart fa-lg text-white" to="/cart">
+								<Badge variant="light">{actions.getQty()}</Badge>
+							</Link>
 						</li>
 					</ul>
 				</div>

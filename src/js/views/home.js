@@ -3,14 +3,15 @@ import "../../styles/home.scss";
 import { Searchbar } from "../component/searchbar";
 import { Cards } from "../component/cards";
 import { ActiveCampaignForm } from "../component/acintegration";
+import { BestSeller } from "../component/bestseller";
 
 export const Home = () => (
 	<div>
 		<Searchbar />
-		<Cards />
+		<BestSeller />
 		<ActiveCampaignForm />
-		<div className="container">
-			<div calssName="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 col-12">
+		<div className="container-fluid">
+			<div className="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 col-12">
 				<div className="common-objections m-0 p-0">
 					<h1>Common Objections</h1>
 					<p>

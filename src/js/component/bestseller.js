@@ -2,6 +2,7 @@ import React, { Component, useContext } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/home.scss";
 import Card from "react-bootstrap/Card";
+import { Cards } from "./cards";
 import CardDeck from "react-bootstrap/CardDeck";
 import Button from "react-bootstrap/Button";
 import PropTypes from "prop-types";
@@ -9,7 +10,7 @@ import { CartContext } from "./cartContext";
 import { Context } from "../store/appContext";
 import { CardProvider } from "./cartContext";
 
-export const Cards = props => {
+export const BestSeller = props => {
 	const { store, actions } = useContext(Context);
 
 	const addToCart = () => {
@@ -24,29 +25,26 @@ export const Cards = props => {
 	console.log(props);
 
 	return (
-		<div className="col-lg-4 col-md-6 col-12">
-			<Card id={props.id}>
-				<Card.Img variant="top" src={props.image} />
-				<Card.Body>
-					<Card.Text>
-						<b>{props.name}</b>
-					</Card.Text>
-					<Card.Text>
-						<b>
-							Price:<span>$</span>
-							{props.price}
-						</b>
-					</Card.Text>
-					<Button className="bestselling-button" variant="success" onClick={addToCart}>
-						<b>Add To Cart</b>
-					</Button>
-				</Card.Body>
-			</Card>
+		<div className="container">
+			<h1 className="text-center pb-4">Bestselling Products</h1>
+			<CardDeck className="row w-100">
+				{store.database.map(item => {
+					return (
+						<Cards
+							name={item.title}
+							price={item.price.value}
+							image={item.image}
+							key={item.asin}
+							id={item.asin}
+						/>
+					);
+				})}
+			</CardDeck>
 		</div>
 	);
 };
 
-Cards.propTypes = {
+BestSeller.propTypes = {
 	id: PropTypes.string,
 	name: PropTypes.string,
 	price: PropTypes.number,
