@@ -1,3 +1,7 @@
+import { Redirect } from "react-router-dom";
+
+const apiHost = "https://3000-ec28e99f-079c-4f95-8f5f-297b1cb48cc8.ws-us02.gitpod.io";
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -56,13 +60,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			],
 			create_user: "",
+<<<<<<< HEAD
 			token: "",
 			cart: [],
 			cartTotal: 0
+=======
+			token: ""
+>>>>>>> origin
 		},
 		actions: {
 			createContact: email => {
-				fetch("https://3000-b584752f-7982-4bf0-83ee-68da25c07f9f.ws-us02.gitpod.io/subscribe", {
+				fetch(apiHost + "/subscribe", {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json"
@@ -78,9 +86,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 						setStore({ message: response.message });
 					});
 			},
-			createUser: (name, lastname, email, address, city, country, password) => {
+			createUser: (name, lastname, email, address, city, country, password, history) => {
 				let store = getStore();
-				fetch("https://3000-b584752f-7982-4bf0-83ee-68da25c07f9f.ws-us02.gitpod.io/register", {
+				fetch(apiHost + "/register", {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json"
@@ -98,12 +106,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(resp => resp.json())
 					.then(response => {
 						setStore({ create_user: response.message });
-						// console.log(store.create_user);
-					});
+					})
+					.then(() => history.push("/registration/confirmation"));
 			},
 			login: (email, password) => {
 				let store = getStore();
-				fetch("https://3000-b584752f-7982-4bf0-83ee-68da25c07f9f.ws-us02.gitpod.io/login", {
+				fetch(apiHost + "/login", {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json"

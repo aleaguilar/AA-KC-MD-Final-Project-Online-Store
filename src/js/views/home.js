@@ -10,7 +10,11 @@ export const Home = () => (
 		<Searchbar />
 		<BestSeller />
 		<ActiveCampaignForm />
+<<<<<<< HEAD
 		<div className="container-fluid">
+=======
+		<div className="container">
+>>>>>>> origin
 			<div className="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 col-12">
 				<div className="common-objections m-0 p-0">
 					<h1>Common Objections</h1>

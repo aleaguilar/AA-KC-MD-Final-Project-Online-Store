@@ -3,41 +3,42 @@ import { Link } from "react-router-dom";
 import "../../styles/home.scss";
 import { LogInModal } from "./loginmodal";
 import { Registration } from "./registration";
+import { Confirmation } from "./confirmation";
 import { Home } from "../views/home";
+<<<<<<< HEAD
 import { Context } from "../store/appContext";
 import Badge from "react-bootstrap/Badge";
+=======
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
+>>>>>>> origin
 
-export const Navbar = () => {
+export const NavbarNew = () => {
 	const [modal, setModal] = useState(false);
+<<<<<<< HEAD
 	const { store, actions } = useContext(Context);
 
+=======
+>>>>>>> origin
 	return (
-		<nav className=" sticky navbar navbar-expand-lg navbar-light font-weight-bold pt-3">
-			<Link className="link registration-link nav-link text-white" to="/">
-				Liberty Mall
-			</Link>
-			<button
-				className="navbar-toggler"
-				type="button"
-				data-toggle="collapse"
-				data-target="#navbarNavDropdown"
-				aria-controls="navbarNavDropdown"
-				aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span className="navbar-toggler-icon"></span>
-			</button>
-			<div className="collapse navbar-collapse text-white" id="navbarNavDropdown">
+		<Navbar expand="lg" className="navbar navbar-light font-weight-bold pt-3">
+			<Navbar.Brand href="#home">
+				<Link className="link registration-link nav-link text-white" to="/">
+					Liberty Mall
+				</Link>
+			</Navbar.Brand>
+			<Navbar.Toggle aria-controls="basic-navbar-nav" />
+			<Navbar.Collapse id="basic-navbar-nav">
 				<div className="rightside ml-auto">
-					<ul className="navbar-nav text-white">
-						<li className="nav-item active">
-							<a className="nav-link text-white" href="#" onClick={e => setModal(true)}>
-								Log In
-							</a>
-						</li>
-						<li className="nav-item active">
-							<Link className="link registration-link nav-link text-white" to="/registration">
+					<Nav className="text-white">
+						<Nav.Link className="nav-link text-white" href="#" onClick={e => setModal(true)}>
+							Log In
+						</Nav.Link>
+						<Nav.Link className="nav-link text-white" href="#">
+							<Link className="link registration-link nav-link" to="/registration">
 								Register
 							</Link>
+<<<<<<< HEAD
 						</li>
 						<li className="nav-item active">
 							<a className="nav-link text-white" href="#">
@@ -60,9 +61,25 @@ export const Navbar = () => {
 							</Link>
 						</li>
 					</ul>
+=======
+						</Nav.Link>
+						<Nav.Link className="nav-link text-white" href="#">
+							FAQ
+						</Nav.Link>
+						<Nav.Link className="nav-link text-white" href="#">
+							Contacts
+						</Nav.Link>
+						<Nav.Link className="nav-link text-white" href="#">
+							About Us
+						</Nav.Link>
+						<Nav.Link className="nav-link text-white" href="#">
+							<i className="fas fa-shopping-cart fa-lg"></i>
+						</Nav.Link>
+					</Nav>
+>>>>>>> origin
 				</div>
 				<LogInModal show={modal} onHide={e => setModal(false)} />
-			</div>
-		</nav>
+			</Navbar.Collapse>
+		</Navbar>
 	);
 };

@@ -7,7 +7,7 @@ import { Demo } from "./views/demo";
 import { Single } from "./views/single";
 import injectContext from "./store/appContext";
 
-import { Navbar } from "./component/navbar";
+import { NavbarNew } from "./component/navbar";
 import { Searchbar } from "./component/searchbar";
 import { Cards } from "./component/cards";
 import { ActiveCampaignForm } from "./component/acintegration";
@@ -27,13 +27,17 @@ export const Layout = () => {
 		<div className="d-flex flex-column h-100">
 			<BrowserRouter>
 				<ScrollToTop>
-					<Navbar />
+					<NavbarNew />
 					<Switch>
 						<Route exact path="/" component={Home} />
 						<Route exact path="/demo" component={Demo} />
 						<Route exact path="/registration" component={Registration} />
+<<<<<<< HEAD
 						<Route exact path="/confirmation" component={Confirmation} />
 						<Route exact path="/cart" component={Cart} />
+=======
+						<Route exact path="/registration/confirmation" component={Confirmation} />
+>>>>>>> origin
 						<Route exact path="/single/:theid" component={Single} />
 						<Route render={() => <h1>Not found!</h1>} />
 					</Switch>
