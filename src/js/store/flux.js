@@ -119,7 +119,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 					.then(resp => resp.json())
 					.then(response => {
-						setStore({ token: response.jwt });
+						setStore({ token: response.jwt, name: response.name });
 					});
 			},
 			addToCart: item => {
