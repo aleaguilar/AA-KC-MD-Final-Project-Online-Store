@@ -1,6 +1,6 @@
 import { Redirect } from "react-router-dom";
 
-const apiHost = "https://3000-ec28e99f-079c-4f95-8f5f-297b1cb48cc8.ws-us02.gitpod.io";
+const apiHost = "https://3000-f0ee3540-c9c2-43c9-88f6-ced59f49e0d9.ws-us02.gitpod.io";
 
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
@@ -83,6 +83,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 			},
 			createUser: (name, lastname, email, address, city, country, password, history) => {
+				//history.push("/registration/confirmation");
+				console.log(name, lastname, email, address, city, country, password, history);
 				let store = getStore();
 				fetch(apiHost + "/register", {
 					method: "POST",
@@ -102,8 +104,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(resp => resp.json())
 					.then(response => {
 						setStore({ create_user: response.message });
-					})
-					.then(() => history.push("/registration/confirmation"));
+						history.push("/registration/confirmation");
+						console.log(response);
+					});
+				//.then(() => history.push("/registration/confirmation"));
 			},
 			login: (email, password) => {
 				let store = getStore();

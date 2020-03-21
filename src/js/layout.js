@@ -33,6 +33,7 @@ export const Layout = () => {
 						<Route exact path="/demo" component={Demo} />
 						<Route exact path="/registration" component={Registration} />
 						<Route exact path="/confirmation" component={Confirmation} />
+						<Route exact path="/registration/confirmation" component={Confirmation} />
 						<Route exact path="/cart" component={Cart} />
 						<Route exact path="/single/:theid" component={Single} />
 						<Route render={() => <h1>Not found!</h1>} />

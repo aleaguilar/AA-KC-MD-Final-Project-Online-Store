@@ -22,10 +22,14 @@ export const Registration = props => {
 	const [password, setPassword] = useState(false);
 
 	const handleSubmit = event => {
-		const form = event.target;
-		event.preventDefault();
-		event.stopPropagation();
+		const form = event.currentTarget;
+		if (form.checkValidity() === false) {
+			event.preventDefault();
+			event.stopPropagation();
+		}
+		setValidated(true);
 		if (form.checkValidity() === true) {
+			event.preventDefault();
 			setValidated(true);
 			actions.createUser(name, lastname, email, address, city, country, password, props.history);
 		}
