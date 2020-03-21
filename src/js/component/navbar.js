@@ -10,6 +10,7 @@ import Badge from "react-bootstrap/Badge";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import { Account } from "./account";
 
 export const NavbarNew = () => {
 	const [modal, setModal] = useState(false);
@@ -20,6 +21,7 @@ export const NavbarNew = () => {
 				<Link className="link registration-link nav-link text-white" to="/">
 					Liberty Mall
 				</Link>
+				<Link to="/account">Account</Link>
 			</Navbar.Brand>
 			<Navbar.Toggle aria-controls="basic-navbar-nav" />
 			<Navbar.Collapse id="basic-navbar-nav">

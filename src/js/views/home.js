@@ -4,6 +4,7 @@ import { Searchbar } from "../component/searchbar";
 import { Cards } from "../component/cards";
 import { ActiveCampaignForm } from "../component/acintegration";
 import { BestSeller } from "../component/bestseller";
+import { Account } from "../component/account";
 
 export const Home = () => (
 	<div>

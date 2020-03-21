@@ -16,6 +16,7 @@ import { LogInModal } from "./component/loginmodal";
 import { Registration } from "./component/registration";
 import { Confirmation } from "./component/confirmation";
 import { Cart } from "./component/cart";
+import { Account } from "./component/account";
 
 //create your first component
 export const Layout = () => {
@@ -35,6 +36,7 @@ export const Layout = () => {
 						<Route exact path="/confirmation" component={Confirmation} />
 						<Route exact path="/registration/confirmation" component={Confirmation} />
 						<Route exact path="/cart" component={Cart} />
+						<Route exapct path="/account" component={Account} />
 						<Route exact path="/single/:theid" component={Single} />
 						<Route render={() => <h1>Not found!</h1>} />
 					</Switch>
