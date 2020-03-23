@@ -1,5 +1,6 @@
-import React, { Component } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+import { Context } from "../store/appContext";
 import "../../styles/home.scss";
 import Modal from "react-bootstrap/Modal";
 import ModalHeader from "react-bootstrap/ModalHeader";
@@ -15,6 +16,9 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
 export const LogInModal = props => {
+	const { store, actions } = useContext(Context);
+	const [email, setEmail] = useState(false);
+	const [password, setPassword] = useState(false);
 	const { onHide } = props;
 	return (
 		<Modal {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
@@ -30,7 +34,7 @@ export const LogInModal = props => {
 							Email
 						</Form.Label>
 						<Col sm={10}>
-							<Form.Control type="email" placeholder="Email" />
+							<Form.Control type="email" placeholder="Email" onChange={e => setEmail(e.target.value)} />
 						</Col>
 					</Form.Group>
 
@@ -39,7 +43,11 @@ export const LogInModal = props => {
 							Password
 						</Form.Label>
 						<Col sm={10}>
-							<Form.Control type="password" placeholder="Password" />
+							<Form.Control
+								type="password"
+								placeholder="Password"
+								onChange={e => setPassword(e.target.value)}
+							/>
 						</Col>
 					</Form.Group>
 					<Form.Group as={Row} controlId="formHorizontalCheck">
@@ -50,7 +58,9 @@ export const LogInModal = props => {
 
 					<Form.Group as={Row}>
 						<Col sm={{ span: 10, offset: 2 }}>
-							<Button type="submit">Sign in</Button>
+							<Button onClick={() => actions.login(email, password)} type="button">
+								Sign in
+							</Button>
 						</Col>
 					</Form.Group>
 				</Form>
