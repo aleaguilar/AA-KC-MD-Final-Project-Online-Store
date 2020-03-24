@@ -1,6 +1,6 @@
 import { Redirect } from "react-router-dom";
 
-const apiHost = "https://3000-f0ee3540-c9c2-43c9-88f6-ced59f49e0d9.ws-us02.gitpod.io";
+const apiHost = "https://3000-e99cf208-b34d-4050-a0cc-a720a25a46d1.ws-us02.gitpod.io";
 
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
@@ -60,7 +60,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			],
 			create_user: "",
-			token: "",
+			token: null,
 			cart: [],
 			cartTotal: 0
 		},
@@ -110,6 +110,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				//.then(() => history.push("/registration/confirmation"));
 			},
 			login: (email, password) => {
+				console.log(email, password);
 				let store = getStore();
 				fetch(apiHost + "/login", {
 					method: "POST",
@@ -124,7 +125,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(resp => resp.json())
 					.then(response => {
 						setStore({ token: response.jwt, name: response.name });
+						console.log(response.jwt);
+						return true;
 					});
+
+				return false;
+			},
+			logout: () => {
+				setStore({
+					token: null
+				});
 			},
 			addToCart: item => {
 				let store = getStore();

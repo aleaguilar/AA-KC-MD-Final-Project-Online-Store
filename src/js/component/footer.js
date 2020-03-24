@@ -20,18 +20,14 @@ export const Footer = () => (
 				<Col>
 					<ul className="pl-0">
 						<li className="h4 font-weight-bold">Products</li>
-						<li>Our Products</li>
 						<li>Guidelines</li>
 						<li>Services</li>
 						<li>Pricing</li>
-						<li>Features</li>
 					</ul>
 				</Col>
 				<Col>
 					<ul className="pl-0">
 						<li className="h4 font-weight-bold">About Us</li>
-						<li>Blog</li>
-						<li>Story</li>
 						<li>Contacts</li>
 						<li>Our Mission</li>
 						<li>Careers</li>
@@ -43,14 +39,6 @@ export const Footer = () => (
 						<li>Terms &#38; Condition</li>
 						<li>Contact Us</li>
 						<li>Private Policy</li>
-					</ul>
-				</Col>
-				<Col>
-					<ul className="pl-0">
-						<li className="h4 font-weight-bold">Media</li>
-						<li>Brochures and Magazines</li>
-						<li>Teaching Packs</li>
-						<li>Videos and Podcasts</li>
 					</ul>
 				</Col>
 			</Row>

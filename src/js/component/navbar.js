@@ -10,10 +10,12 @@ import Badge from "react-bootstrap/Badge";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import { Account } from "./account";
 
 export const NavbarNew = () => {
 	const [modal, setModal] = useState(false);
 	const { store, actions } = useContext(Context);
+
 	return (
 		<Navbar expand="lg" className=" sticky navbar navbar-light font-weight-bold pt-3">
 			<Navbar.Brand href="#home">
@@ -25,14 +27,25 @@ export const NavbarNew = () => {
 			<Navbar.Collapse id="basic-navbar-nav">
 				<div className="rightside ml-auto">
 					<Nav className="text-white">
-						<Nav.Link className="nav-link text-white" href="#" onClick={e => setModal(true)}>
-							Log In
-						</Nav.Link>
-						<Nav.Link className="nav-link text-white" href="#">
-							<Link className="link registration-link nav-link" to="/registration">
-								Register
-							</Link>
-						</Nav.Link>
+						{store.token !== null && store.token !== undefined ? (
+							<>
+								<Nav.Link className="nav-link text-white" href="#" as={Link} to="/account">
+									Account
+								</Nav.Link>
+								<Nav.Link className="nav-link text-white" href="#" onClick={e => actions.logout()}>
+									Log Out
+								</Nav.Link>
+							</>
+						) : (
+							<>
+								<Nav.Link className="nav-link text-white" href="#" onClick={e => setModal(true)}>
+									Log In
+								</Nav.Link>
+								<Nav.Link className="nav-link text-white" href="#" as={Link} to="/registration">
+									Register
+								</Nav.Link>
+							</>
+						)}
 						<Nav.Link className="nav-link text-white" href="#">
 							FAQ
 						</Nav.Link>
