@@ -17,9 +17,34 @@ import Row from "react-bootstrap/Row";
 
 export const LogInModal = props => {
 	const { store, actions } = useContext(Context);
-	const [email, setEmail] = useState(false);
-	const [password, setPassword] = useState(false);
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+	const [remember, setRemember] = useState(false);
 	const { onHide } = props;
+	const handleLogin = () => {
+		let result = new Promise((resolve, reject) => {
+			actions.login(email, password);
+			setTimeout(() => {
+				resolve();
+			}, 500);
+		});
+
+		result.then(res => {
+			console.log(result);
+			if (result && store.token !== null && store.token !== undefined) {
+				if (!remember) {
+					setPassword("");
+					setEmail("");
+					onHide();
+				} else {
+					// We want to remember the user.
+					// Need to store a value in the localStorage that we can check on load.
+					onHide();
+				}
+			}
+		});
+	};
+
 	return (
 		<Modal {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
 			<Modal.Header className="modal-header">
@@ -34,7 +59,12 @@ export const LogInModal = props => {
 							Email
 						</Form.Label>
 						<Col sm={10}>
-							<Form.Control type="email" placeholder="Email" onChange={e => setEmail(e.target.value)} />
+							<Form.Control
+								type="email"
+								value={email}
+								placeholder="Email"
+								onChange={e => setEmail(e.target.value)}
+							/>
 						</Col>
 					</Form.Group>
 
@@ -44,21 +74,25 @@ export const LogInModal = props => {
 						</Form.Label>
 						<Col sm={10}>
 							<Form.Control
+								value={password}
 								type="password"
 								placeholder="Password"
 								onChange={e => setPassword(e.target.value)}
 							/>
 						</Col>
 					</Form.Group>
+					{store.token === undefined ? (
+						<p className="text-danger">Failed to login. Please check your credentials and try again.</p>
+					) : null}
 					<Form.Group as={Row} controlId="formHorizontalCheck">
 						<Col sm={{ span: 10, offset: 2 }}>
-							<Form.Check label="Remember me" />
+							<Form.Check onChange={e => setRemember(!remember)} checked={remember} label="Remember me" />
 						</Col>
 					</Form.Group>
 
 					<Form.Group as={Row}>
 						<Col sm={{ span: 10, offset: 2 }}>
-							<Button onClick={() => actions.login(email, password)} type="button">
+							<Button onClick={handleLogin} type="button">
 								Sign in
 							</Button>
 						</Col>
