@@ -7,10 +7,10 @@ import Card from "react-bootstrap/Card";
 export const Account = () => {
 	return (
 		<div style={{ paddingTop: 150 }}>
-			<h1 className="pb-3">Your Account</h1>
-			<Accordion defaultActiveKey="0">
-				<Card>
-					<Accordion.Toggle as={Card.Header} eventKey="0">
+			<h1 className="pb-3, pl-3">Your Account</h1>
+			<Accordion className="p-5" defaultActiveKey="0">
+				<Card className="card-top">
+					<Accordion.Toggle className="accordion-toggle-top" as={Card.Header} eventKey="0">
 						Personal Information
 					</Accordion.Toggle>
 					<Accordion.Collapse eventKey="0">
@@ -20,8 +20,8 @@ export const Account = () => {
 						<Card.Body>Change Password</Card.Body>
 					</Accordion.Collapse>
 				</Card>
-				<Card>
-					<Accordion.Toggle as={Card.Header} eventKey="1">
+				<Card className="card-bottom">
+					<Accordion.Toggle className="accordion-toggle-bottom" as={Card.Header} eventKey="1">
 						Orders
 					</Accordion.Toggle>
 					<Accordion.Collapse eventKey="1">
