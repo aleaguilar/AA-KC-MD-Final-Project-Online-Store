@@ -57,7 +57,7 @@ export const NavbarNew = () => {
 						</Nav.Link>
 						<Nav.Link className="nav-link text-white" href="#">
 							<Link className="fas fa-shopping-cart fa-lg text-white" to="/cart">
-								<Badge variant="light">{actions.getQty()}</Badge>
+								<Badge variant="badge badge-danger ml-2">{actions.getQty()}</Badge>
 							</Link>
 						</Nav.Link>
 					</Nav>
