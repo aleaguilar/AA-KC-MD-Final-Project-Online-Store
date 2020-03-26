@@ -125,7 +125,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(resp => resp.json())
 					.then(response => {
 						setStore({ token: response.jwt, name: response.name });
-						console.log(response.jwt);
 						return true;
 					});
 
@@ -170,6 +169,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 				store.cartTotal = cartTotal.reduce((total, current) => total + current, 0);
 
 				setStore(store);
+			},
+			searchbarAPI: input => {
+				var url = new URL("https://api.rainforestapi.com/request");
+				var params = {
+					api_key: process.env.API_KEY,
+					type: "search",
+					amazon_domain: "amazon.com",
+					search_term: input,
+					sort_by: "price_high_to_low"
+				};
+				url.search = new URLSearchParams(params).toString();
+				fetch(url)
+					.then(resp => resp.json())
+					.then(response => {
+						console.log("booboo", response);
+						setStore({ database: response.search_results });
+					});
 			}
 		}
 	};
