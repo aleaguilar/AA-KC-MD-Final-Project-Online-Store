@@ -5,6 +5,7 @@ import { BestSeller } from "./bestseller";
 import "../../styles/home.scss";
 import { Context } from "../store/appContext";
 //import PropTypes from "prop-types";
+import { PayPalButton } from "react-paypal-button-v2";
 
 export const Cart = () => {
 	const { store, actions } = useContext(Context);
@@ -63,9 +64,21 @@ export const Cart = () => {
 							</div>
 							<hr />
 							<div className="offset-md-10 col-12 col-md-4">
-								<button type="button" variant="primary" size="lg" className="btn btn-primary">
-									Checkout
-								</button>
+								<PayPalButton
+									amount={store.cartTotal}
+									// shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
+									onSuccess={(details, data) => {
+										alert("Transaction completed by " + details.payer.name.given_name);
+
+										// OPTIONAL: Call your server to save the transaction
+										//return fetch("/paypal-transaction-complete", {
+										//  method: "post",
+										//     body: JSON.stringify({
+										//     orderID: data.orderID
+										//     })
+										// });
+									}}
+								/>
 							</div>
 						</div>
 					</div>
