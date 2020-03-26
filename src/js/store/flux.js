@@ -168,7 +168,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				setStore(store);
 			},
- API
+
 			searchbarAPI: input => {
 				var url = new URL("https://api.rainforestapi.com/request");
 				var params = {

@@ -13,7 +13,7 @@ export const Cart = () => {
 	useEffect(() => {
 		actions.updateCartTotal();
 		// console.log("qty is ", actions.getQty());
-		actions.removeFromCart();
+		//actions.removeFromCart();
 	}, [store]);
 
 	return (
@@ -39,7 +39,7 @@ export const Cart = () => {
 									</div>
 									<div className="col-6 col-md-2">
 										<i className="fa fa-trash" aria-hidden="true"></i>
-										{item.remove}
+										{/* {item.remove} */}
 									</div>
 									<div className="col-6 col-md-2">{item.price}</div>
 								</div>
