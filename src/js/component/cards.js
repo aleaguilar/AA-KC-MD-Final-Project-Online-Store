@@ -15,7 +15,7 @@ export const Cards = props => {
 	const addToCart = () => {
 		const database = {
 			name: props.name,
-			price: props.price,
+			// price: props.price,
 			id: props.id,
 			image: props.image
 		};
@@ -32,10 +32,8 @@ export const Cards = props => {
 						<b>{props.name}</b>
 					</Card.Text>
 					<Card.Text>
-						<b>
-							Price:<span>$</span>
-							{props.price}
-						</b>
+						<b>{/* Price:<span>$</span>
+							{props.price} */}</b>
 					</Card.Text>
 					<Button className="bestselling-button" variant="success" onClick={addToCart}>
 						<b>Add To Cart</b>

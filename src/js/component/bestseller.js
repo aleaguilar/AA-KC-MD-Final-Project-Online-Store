@@ -16,7 +16,7 @@ export const BestSeller = props => {
 	const addToCart = () => {
 		const database = {
 			name: props.name,
-			price: props.price,
+			// price: props.price,
 			id: props.id,
 			image: props.image
 		};
@@ -32,7 +32,7 @@ export const BestSeller = props => {
 					return (
 						<Cards
 							name={item.title}
-							price={item.price.value}
+							// price={item.price.value}
 							image={item.image}
 							key={item.asin}
 							id={item.asin}

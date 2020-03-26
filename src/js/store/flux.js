@@ -1,6 +1,6 @@
 import { Redirect } from "react-router-dom";
 
-const apiHost = "https://3000-bb01472d-626d-4ea8-ad17-e0d7cbe2b4ef.ws-us02.gitpod.io";
+const apiHost = "https://3000-fb9f371a-5071-4772-a023-aa9fd38b6208.ws-us02.gitpod.io";
 
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
@@ -123,7 +123,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(resp => resp.json())
 					.then(response => {
 						setStore({ token: response.jwt, name: response.name });
-						console.log(response.jwt);
 						return true;
 					});
 
@@ -169,17 +168,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				setStore(store);
 			},
-			removeFromCart: () => {
-				let store = getStore();
-
-				let removeFromCart = store.removeFromCart.slice(item => {
-					return item.count - item.price;
-				});
-
-				store.removeFromCart = removeFromCart.slice((total, current) => total - current, 0);
-				console.log(removeFromCart);
-
-				setStore(store);
+ API
+			searchbarAPI: input => {
+				var url = new URL("https://api.rainforestapi.com/request");
+				var params = {
+					api_key: process.env.API_KEY,
+					type: "search",
+					amazon_domain: "amazon.com",
+					search_term: input,
+					sort_by: "price_high_to_low"
+				};
+				url.search = new URLSearchParams(params).toString();
+				fetch(url)
+					.then(resp => resp.json())
+					.then(response => {
+						console.log("booboo", response);
+						setStore({ database: response.search_results });
+					});
 			}
 		}
 	};
