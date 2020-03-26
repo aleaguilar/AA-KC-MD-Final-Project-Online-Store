@@ -31,7 +31,11 @@ export const Cart = () => {
 							{store.cart.map((item, index) => (
 								<div key={index} className="row py-3 cart-row">
 									<div className="col-12 col-md-6">{item.name}</div>
-									<div className="col-6 col-md-2">{item.count}</div>
+									<div className="col-6 col-md-2">
+										<i className="p-1 fas fa-arrow-alt-circle-up"></i>
+										{item.count}
+										<i className="p-1 fas  fa-arrow-alt-circle-down"></i>
+									</div>
 									<div className="col-6 col-md-2">
 										<i className="fa fa-trash" aria-hidden="true"></i>
 										{item.remove}
@@ -48,7 +52,7 @@ export const Cart = () => {
 									Remove all Items
 								</button>
 							</div>
-							<div className="offset-md-10 col-12 col-md-4">
+							<div className="pt-2 offset-md-10 col-12 col-md-4">
 								<strong> Subtotal:</strong> $
 							</div>
 							<div className="offset-md-10 col-12 col-md-4">
