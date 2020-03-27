@@ -22,7 +22,6 @@ export const BestSeller = props => {
 		};
 		actions.addToCart(database);
 	};
-	console.log(props);
 
 	return (
 		<div className="container">
