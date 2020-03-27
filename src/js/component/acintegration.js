@@ -18,9 +18,7 @@ export const ActiveCampaignForm = () => {
 					<div className="subscription">
 						<div className="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 col-12">
 							<div className="_form_3" />
-							{/* <p>Be always on the loop!</p> */}
-							<p>Subscribe to our email list to get our latest offers</p>
-							<p>Email (Required)</p>
+							<p className="text-center">Subscribe to our email list to get our latest offers</p>
 							<input placeholder="Your email here" onChange={e => setEmail(e.target.value)} />
 							<button
 								onClick={() => {
