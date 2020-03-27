@@ -30,7 +30,6 @@ export const LogInModal = props => {
 		});
 
 		result.then(res => {
-			console.log(result);
 			if (result && store.token !== null && store.token !== undefined) {
 				if (!remember) {
 					setPassword("");

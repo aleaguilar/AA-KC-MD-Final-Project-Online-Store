@@ -21,7 +21,6 @@ export const Cards = props => {
 		};
 		actions.addToCart(database);
 	};
-	console.log(props);
 
 	return (
 		<div className="col-lg-4 col-md-6 col-12">

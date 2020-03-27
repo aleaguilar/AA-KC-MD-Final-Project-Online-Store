@@ -1,6 +1,6 @@
 import { Redirect } from "react-router-dom";
 
-const apiHost = "https://3000-fb9f371a-5071-4772-a023-aa9fd38b6208.ws-us02.gitpod.io";
+const apiHost = "https://3000-e046185b-ee62-4afc-bc6a-2166808fb37b.ws-us02.gitpod.io";
 
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
@@ -82,7 +82,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			createUser: (name, lastname, email, address, city, country, password, history) => {
 				//history.push("/registration/confirmation");
-				console.log(name, lastname, email, address, city, country, password, history);
 				let store = getStore();
 				fetch(apiHost + "/register", {
 					method: "POST",
@@ -103,12 +102,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(response => {
 						setStore({ create_user: response.message });
 						history.push("/registration/confirmation");
-						console.log(response);
 					});
 				//.then(() => history.push("/registration/confirmation"));
 			},
 			login: (email, password) => {
-				console.log(email, password);
 				let store = getStore();
 				fetch(apiHost + "/login", {
 					method: "POST",
@@ -168,7 +165,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				setStore(store);
 			},
-
 			searchbarAPI: input => {
 				var url = new URL("https://api.rainforestapi.com/request");
 				var params = {
@@ -182,7 +178,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch(url)
 					.then(resp => resp.json())
 					.then(response => {
-						console.log("booboo", response);
 						setStore({ database: response.search_results });
 					});
 			}
