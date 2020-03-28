@@ -1,6 +1,6 @@
 import { Redirect } from "react-router-dom";
 
-const apiHost = "https://3000-e046185b-ee62-4afc-bc6a-2166808fb37b.ws-us02.gitpod.io";
+const apiHost = "https://3000-f42a28b3-078c-452f-bf0f-142ae66bedb7.ws-us02.gitpod.io";
 
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
