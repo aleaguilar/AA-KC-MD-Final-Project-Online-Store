@@ -80,7 +80,7 @@ export const Searchbar = () => {
 							</InputGroup.Append>
 						</InputGroup>
 					</Form>
-					<Button className="search-button" variant="success">
+					<Button className="search-button pt-2 mb-4" variant="success">
 						How It Works
 					</Button>
 				</div>

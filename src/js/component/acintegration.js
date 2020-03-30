@@ -30,6 +30,7 @@ export const ActiveCampaignForm = () => {
 								/>
 								<InputGroup.Append>
 									<Button
+										className="rounded-right"
 										onClick={() => {
 											actions.createContact(email);
 										}}>
