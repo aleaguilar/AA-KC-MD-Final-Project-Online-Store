@@ -17,6 +17,7 @@ import { Registration } from "./component/registration";
 import { Confirmation } from "./component/confirmation";
 import { Cart } from "./component/cart";
 import { Account } from "./component/account";
+import { hiwModal } from "./component/howitworks-modal";
 
 //create your first component
 export const Layout = () => {

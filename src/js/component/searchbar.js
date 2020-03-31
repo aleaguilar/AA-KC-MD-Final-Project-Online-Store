@@ -1,17 +1,20 @@
 import React, { useState, useContext, Component } from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
+import { hiwModal } from "./howitworks-modal";
 import "../../styles/home.scss";
 import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
 import FormControl from "react-bootstrap/FormControl";
 import Form from "react-bootstrap/Form";
 import Spinner from "react-bootstrap/Spinner";
+import Modal from "react-bootstrap/Modal";
 
 export const Searchbar = () => {
 	const { store, actions } = useContext(Context);
 	const [input, setInput] = useState("");
 	const [isLoading, setLoading] = useState(false);
+	const [modal, setModal] = useState(false);
 
 	const spinnerContainerStyles = {
 		width: "200px",
@@ -80,9 +83,14 @@ export const Searchbar = () => {
 							</InputGroup.Append>
 						</InputGroup>
 					</Form>
-					<Button className="search-button pt-2 mb-4" variant="success">
+					<Button
+						type="button"
+						className="search-button pt-2 mb-4"
+						variant="success"
+						onClick={e => setModal(true)}>
 						How It Works
 					</Button>
+					<hiwModal show={modal} onHide={e => setModal(false)} />
 				</div>
 			</div>
 		</div>
