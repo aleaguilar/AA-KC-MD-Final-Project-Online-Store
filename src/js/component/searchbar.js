@@ -1,7 +1,7 @@
 import React, { useState, useContext, Component } from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
-import { hiwModal } from "./howitworks-modal";
+import { HiwModal } from "./howitworks-modal";
 import "../../styles/home.scss";
 import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
@@ -60,7 +60,6 @@ export const Searchbar = () => {
 				<div style={spinnerContainerStyles} className="position-absolute">
 					<div className="w-100 h-100 d-flex align-items-center justify-content-center">
 						<Spinner animation="border" variant="success" style={spinnerStyles} />
-						{/* <h2 className="text-center">Loading...</h2> */}
 					</div>
 				</div>
 			) : null}
@@ -90,7 +89,7 @@ export const Searchbar = () => {
 						onClick={e => setModal(true)}>
 						How It Works
 					</Button>
-					<hiwModal show={modal} onHide={e => setModal(false)} />
+					<HiwModal show={modal} onHide={e => setModal(false)} />
 				</div>
 			</div>
 		</div>

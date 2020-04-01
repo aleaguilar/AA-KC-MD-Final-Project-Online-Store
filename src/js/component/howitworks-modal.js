@@ -15,20 +15,20 @@ import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
-export const hiwModal = props => {
+export const HiwModal = props => {
 	const { onHide } = props;
 
 	return (
 		<Modal {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
-			<Modal.Header closeButton>
-				<Modal.Title id="contained-modal-title-vcenter">Modal heading</Modal.Title>
+			<Modal.Header>
+				<Modal.Title className="text-white" id="contained-modal-title-vcenter">
+					How Liberty Mall Works!
+				</Modal.Title>
 			</Modal.Header>
 			<Modal.Body>
-				<h4>Centered Modal</h4>
-				<p>
-					Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas
-					eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-				</p>
+				<h5 className="pt-3 pb-3">
+					At the search bar, type in any item you want to search for and just click go!
+				</h5>
 			</Modal.Body>
 			<Modal.Footer>
 				<Button onClick={onHide}>Close</Button>
@@ -37,6 +37,6 @@ export const hiwModal = props => {
 	);
 };
 
-hiwModal.propTypes = {
+HiwModal.propTypes = {
 	onHide: PropTypes.func
 };
