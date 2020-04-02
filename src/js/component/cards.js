@@ -24,14 +24,14 @@ export const Cards = props => {
 
 	return (
 		<div className="col-lg-4 col-md-6 col-12">
-			<Card id={props.id}>
+			<Card id={props.id} className="mb-3">
 				<Card.Body>
 					<hr />
 					<div className="image">
 						<Card.Img variant="top" src={props.image} />
 					</div>
 					<hr />
-					<Card.Text>
+					<Card.Text className="itemTextCard">
 						<b>{props.name}</b>
 					</Card.Text>
 					<Card.Text>
