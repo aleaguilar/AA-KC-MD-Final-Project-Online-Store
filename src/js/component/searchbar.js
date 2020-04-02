@@ -7,7 +7,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
 import FormControl from "react-bootstrap/FormControl";
 import Form from "react-bootstrap/Form";
-import Spinner from "react-bootstrap/Spinner";
+import Loading from "./loading";
 import Modal from "react-bootstrap/Modal";
 
 export const Searchbar = () => {
@@ -16,53 +16,29 @@ export const Searchbar = () => {
 	const [isLoading, setLoading] = useState(false);
 	const [modal, setModal] = useState(false);
 
-	const spinnerContainerStyles = {
-		width: "200px",
-		height: "200px",
-		top: "calc( 50% - ( 200px / 2) )",
-		right: "calc( 50% - ( 200px / 2) )",
-		zIndex: 9999
-	};
-
-	const spinnerStyles = {
-		width: "150px",
-		height: "150px",
-		borderWidth: ".5rem",
-		boxShadow: "0 0 3px white"
-	};
-
 	const handleKeyDown = e => {
 		// check if enter was pressed
 		if (e.keyCode === 13) {
+			setLoading(true);
 			runSearch();
 		}
 	};
 
 	const handleSubmit = e => {
 		e.preventDefault();
-
+		setLoading(true);
 		runSearch();
 	};
 
 	const runSearch = () => {
-		setLoading(true);
+		let submitSearch = actions.searchbarAPI(input);
 
-		actions.searchbarAPI(input);
-
-		setTimeout(() => {
-			setLoading(false);
-		}, 1500);
+		submitSearch.then(() => setLoading(false));
 	};
 
 	return (
 		<div className="row">
-			{isLoading ? (
-				<div style={spinnerContainerStyles} className="position-absolute">
-					<div className="w-100 h-100 d-flex align-items-center justify-content-center">
-						<Spinner animation="border" variant="success" style={spinnerStyles} />
-					</div>
-				</div>
-			) : null}
+			{isLoading ? <Loading /> : null}
 			<div className="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 col-12">
 				<div className="search p-0">
 					<h1 className="h1sticky text-center pb-4">Buy just about everything</h1>
@@ -82,13 +58,15 @@ export const Searchbar = () => {
 							</InputGroup.Append>
 						</InputGroup>
 					</Form>
-					<Button
-						type="button"
-						className="search-button pt-2 mb-4"
-						variant="success"
-						onClick={e => setModal(true)}>
-						How It Works
-					</Button>
+					{
+						<Button
+							type="button"
+							className="search-button pt-2 mb-4"
+							variant="success"
+							onClick={e => setModal(true)}>
+							How It Works
+						</Button>
+					}
 					<HiwModal show={modal} onHide={e => setModal(false)} />
 				</div>
 			</div>

@@ -124,3 +124,12 @@ Link {
 .card-top, .card-bottom {
     margin-right: 200px;
 }
+.image {
+    display:flex; 
+    align-items:center;
+    height:315px;
+}
+.badge{
+    border-radius: 50%;
+    background-color: #7ac142;
+}

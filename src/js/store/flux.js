@@ -1,6 +1,8 @@
 import { Redirect } from "react-router-dom";
 
-const apiHost = "https://3000-c1a65e1d-d395-4db9-8dd5-8267a142d27f.ws-us02.gitpod.io/";
+
+const apiHost = "https://3000-c1a65e1d-d395-4db9-8dd5-8267a142d27f.ws-us02.gitpod.io";
+
 
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
@@ -87,7 +89,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			createUser: (name, lastname, email, address, city, country, password, history) => {
 				//history.push("/registration/confirmation");
 				let store = getStore();
-				fetch(apiHost + "/register", {
+				return fetch(apiHost + "/register", {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json"
@@ -111,7 +113,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			login: (email, password) => {
 				let store = getStore();
-				fetch(apiHost + "/login", {
+				return fetch(apiHost + "/login", {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json"
@@ -125,10 +127,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(response => {
 						localStorage.setItem("usertoken", JSON.stringify(response.jwt));
 						setStore({ token: response.jwt, name: response.name });
-						return true;
 					});
-
-				return false;
 			},
 			logout: () => {
 				setStore({
@@ -180,7 +179,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					sort_by: "price_high_to_low"
 				};
 				url.search = new URLSearchParams(params).toString();
-				fetch(url)
+				return fetch(url)
 					.then(resp => resp.json())
 					.then(response => {
 						setStore({ database: response.search_results });

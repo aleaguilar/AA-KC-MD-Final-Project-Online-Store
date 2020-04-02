@@ -9,6 +9,7 @@ import Col from "react-bootstrap/Col";
 import InputGroup from "react-bootstrap/InputGroup";
 import { Context } from "../store/appContext";
 import PropTypes from "prop-types";
+import Loading from "./loading";
 
 export const Registration = props => {
 	const { store, actions } = useContext(Context);
@@ -20,23 +21,26 @@ export const Registration = props => {
 	const [city, setCity] = useState(false);
 	const [country, setCountry] = useState(false);
 	const [password, setPassword] = useState(false);
+	const [isLoading, setLoading] = useState(false);
 
 	const handleSubmit = event => {
 		const form = event.currentTarget;
-		if (form.checkValidity() === false) {
-			event.preventDefault();
-			event.stopPropagation();
-		}
-		setValidated(true);
-		if (form.checkValidity() === true) {
-			event.preventDefault();
+		event.preventDefault();
+
+		if (form.checkValidity()) {
 			setValidated(true);
-			actions.createUser(name, lastname, email, address, city, country, password, props.history);
+			setLoading(true);
+
+			let register = actions.createUser(name, lastname, email, address, city, country, password, props.history);
+			register.then(setLoading(false));
+		} else {
+			setValidated(false);
 		}
 	};
 
 	return (
 		<div className="container p-4" style={{ marginTop: "5rem" }}>
+			{isLoading ? <Loading /> : null}
 			<Form noValidate validated={validated} onSubmit={e => handleSubmit(e)}>
 				<Form.Row>
 					<Form.Group as={Col} md="4" controlId="validationCustom01">
