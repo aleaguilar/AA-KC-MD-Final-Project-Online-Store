@@ -20,7 +20,7 @@ export const NavbarNew = () => {
 		<Navbar expand="lg" className=" sticky navbar navbar-light font-weight-bold pt-3">
 			<Navbar.Brand href="#home">
 				<Link className="link registration-link nav-link text-white" to="/">
-					{/* <img src="/logo.png" /> */}Liberty Mall
+					<img src="/logo.png" />
 				</Link>
 			</Navbar.Brand>
 			<Navbar.Toggle aria-controls="basic-navbar-nav" />
