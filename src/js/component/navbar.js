@@ -19,7 +19,7 @@ export const NavbarNew = () => {
 	return (
 		<Navbar expand="lg" className=" sticky navbar navbar-light font-weight-bold pt-3">
 			<Navbar.Brand href="#home">
-				<Link className="link registration-link nav-link text-white" to="/">
+				<Link className="link registration-link nav-link liberty-mall" to="/">
 					{/* <img src="/logo.png" /> */}Liberty Mall
 				</Link>
 			</Navbar.Brand>
