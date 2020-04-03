@@ -23,7 +23,7 @@ export const Registration = props => {
 	const [password, setPassword] = useState(false);
 	const [isLoading, setLoading] = useState(false);
 
-		const handleSubmit = event => {
+	const handleSubmit = event => {
 		const form = event.currentTarget;
 		if (form.checkValidity() === false) {
 			event.preventDefault();
@@ -36,7 +36,6 @@ export const Registration = props => {
 			actions.createUser(name, lastname, email, address, city, country, password, props.history);
 		}
 	};
-
 
 	return (
 		<div className="container p-4" style={{ marginTop: "5rem" }}>
