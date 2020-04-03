@@ -23,20 +23,20 @@ export const Registration = props => {
 	const [password, setPassword] = useState(false);
 	const [isLoading, setLoading] = useState(false);
 
-	const handleSubmit = event => {
+		const handleSubmit = event => {
 		const form = event.currentTarget;
-		event.preventDefault();
-
-		if (form.checkValidity()) {
+		if (form.checkValidity() === false) {
+			event.preventDefault();
+			event.stopPropagation();
+		}
+		setValidated(true);
+		if (form.checkValidity() === true) {
+			event.preventDefault();
 			setValidated(true);
-			setLoading(true);
-
-			let register = actions.createUser(name, lastname, email, address, city, country, password, props.history);
-			register.then(setLoading(false));
-		} else {
-			setValidated(false);
+			actions.createUser(name, lastname, email, address, city, country, password, props.history);
 		}
 	};
+
 
 	return (
 		<div className="container p-4" style={{ marginTop: "5rem" }}>
