@@ -33,9 +33,17 @@ export const Cart = () => {
 								<div key={index} className="row py-3 cart-row">
 									<div className="col-12 col-md-6">{item.name}</div>
 									<div className="col-6 col-md-2">
-										<i className="p-1 fas fa-arrow-alt-circle-up"></i>
+										<i
+											className="p-1 fas fa-arrow-alt-circle-up"
+											onClick={() => {
+												actions.increaseQty(index);
+											}}></i>
 										{item.count}
-										<i className="p-1 fas  fa-arrow-alt-circle-down"></i>
+										<i
+											className="p-1 fas  fa-arrow-alt-circle-down"
+											onClick={() => {
+												actions.decreaseQty(index);
+											}}></i>
 									</div>
 									<div className="col-6 col-md-2">
 										<i className="fa fa-trash" aria-hidden="true"></i>
