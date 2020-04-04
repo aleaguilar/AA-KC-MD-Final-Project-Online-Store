@@ -25,7 +25,7 @@ export const BestSeller = props => {
 
 	return (
 		<div className="container">
-			<h1 className="text-center pb-4">Bestselling Products</h1>
+			<h1 className="text-center pb-4">Featured Products</h1>
 			<CardDeck className="row w-100">
 				{store.database.map(item => {
 					return (

@@ -1,6 +1,6 @@
 import { Redirect } from "react-router-dom";
 
-const apiHost = "https://3000-e15130ab-0316-457e-8f60-bd31d158c0e4.ws-us02.gitpod.io";
+const apiHost = "https://3000-a8a7f3bc-6169-402e-85b3-198f34b5a0a1.ws-us02.gitpod.io";
 
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
@@ -131,6 +131,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({
 					token: null
 				});
+				localStorage.clear();
 			},
 			addToCart: item => {
 				let store = getStore();

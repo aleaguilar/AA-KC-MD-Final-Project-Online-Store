@@ -9,9 +9,7 @@ import { Account } from "../component/account";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
-	//const [store, setStore] = useStore();
 	useEffect(() => {
-		//const store = getStore();
 		const token = JSON.parse(localStorage.getItem("usertoken"));
 
 		actions.saveToken(token);
