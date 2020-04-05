@@ -186,22 +186,34 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			increaseQty: index => {
 				let store = getStore();
-				let editItem = { ...store.cart[index], count: 1 };
+				let editItem = { ...store.cart[index], count: store.cart[index].count + 1 };
 
-				let newArray = store.cart.filter((e, i) => {
-					return index !== i;
-				});
-				setStore({ cart: [...newArray, editItem] });
-				console.log(store.cart);
+				let newArray = [...store.cart];
+				newArray[index] = editItem;
+
+				setStore({ cart: newArray });
 			},
 			decreaseQty: index => {
 				let store = getStore();
-				let editItem = { ...store.cart[index], count: store.cart[index].count - 1 };
-				let newArray = store.cart.filter((e, i) => {
-					return index !== i;
+				if (store.cart[index].count > 0) {
+					let editItem = { ...store.cart[index], count: store.cart[index].count - 1 };
+
+					let newArray = [...store.cart];
+					newArray[index] = editItem;
+
+					setStore({ cart: newArray });
+				}
+			},
+			deleteSingleItem: itemId => {
+				let store = getStore();
+				let newArray = store.cart.filter(item => {
+					return item.id !== itemId;
 				});
-				setStore({ cart: [...newArray, editItem] });
-				console.log(store.cart);
+				setStore({ cart: newArray });
+			},
+			removeAllItems: () => {
+				let store = getStore();
+				setStore({ cart: [] });
 			}
 		}
 	};
