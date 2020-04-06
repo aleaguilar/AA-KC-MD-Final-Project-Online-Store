@@ -33,13 +33,25 @@ export const Cart = () => {
 								<div key={index} className="row py-3 cart-row">
 									<div className="col-12 col-md-6">{item.name}</div>
 									<div className="col-6 col-md-2">
-										<i className="p-1 fas fa-arrow-alt-circle-up"></i>
+										<i
+											className="p-1 fas fa-arrow-alt-circle-up"
+											onClick={() => {
+												actions.increaseQty(index);
+											}}></i>
 										{item.count}
-										<i className="p-1 fas  fa-arrow-alt-circle-down"></i>
+										<i
+											className="p-1 fas  fa-arrow-alt-circle-down"
+											onClick={() => {
+												actions.decreaseQty(index);
+											}}></i>
 									</div>
 									<div className="col-6 col-md-2">
-										<i className="fa fa-trash" aria-hidden="true"></i>
-										{/* {item.remove} */}
+										<i
+											className="fa fa-trash"
+											aria-hidden="true"
+											onClick={() => {
+												actions.deleteSingleItem(item.id);
+											}}></i>
 									</div>
 									<div className="col-6 col-md-2">{item.price}</div>
 								</div>
@@ -49,7 +61,13 @@ export const Cart = () => {
 
 						<div className="row pb-4 cart-footer">
 							<div className="offset-md-10 col-12 col-md-4">
-								<button type="button" variant="light" className="btn btn-primary">
+								<button
+									type="button"
+									variant="light"
+									className="btn btn-primary"
+									onClick={() => {
+										actions.removeAllItems();
+									}}>
 									Remove all Items
 								</button>
 							</div>

@@ -183,6 +183,37 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(response => {
 						setStore({ database: response.search_results });
 					});
+			},
+			increaseQty: index => {
+				let store = getStore();
+				let editItem = { ...store.cart[index], count: store.cart[index].count + 1 };
+
+				let newArray = [...store.cart];
+				newArray[index] = editItem;
+
+				setStore({ cart: newArray });
+			},
+			decreaseQty: index => {
+				let store = getStore();
+				if (store.cart[index].count > 0) {
+					let editItem = { ...store.cart[index], count: store.cart[index].count - 1 };
+
+					let newArray = [...store.cart];
+					newArray[index] = editItem;
+
+					setStore({ cart: newArray });
+				}
+			},
+			deleteSingleItem: itemId => {
+				let store = getStore();
+				let newArray = store.cart.filter(item => {
+					return item.id !== itemId;
+				});
+				setStore({ cart: newArray });
+			},
+			removeAllItems: () => {
+				let store = getStore();
+				setStore({ cart: [] });
 			}
 		}
 	};
