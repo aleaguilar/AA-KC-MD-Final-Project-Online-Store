@@ -16,12 +16,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 					rating: 4.5,
 					ratings_total: 105,
 					is_prime: true,
-					price: {
-						symbol: "$",
-						value: 12.99,
-						currency: "USD",
-						raw: "$12.99"
-					}
+					prices: [
+						{
+							symbol: "$",
+							value: 12.99,
+							currency: "USD",
+							raw: "$12.99"
+						}
+					]
 				},
 				{
 					title: "2 Pack of 128GB MicroSD Card with Adapter,U3 A1 MicroSDXC Card 667X",
@@ -32,12 +34,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 					rating: 4.5,
 					ratings_total: 123,
 					is_prime: true,
-					price: {
-						symbol: "$",
-						value: 42.99,
-						currency: "USD",
-						raw: "$42.99"
-					}
+					prices: [
+						{
+							symbol: "$",
+							value: 42.99,
+							currency: "USD",
+							raw: "$42.99"
+						}
+					]
 				},
 				{
 					title: "Estone 5pcs 1GB SD Cards Security Digital Memory Card with High Speed Compatible",
@@ -48,12 +52,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 					rating: 4.5,
 					ratings_total: 193,
 					is_prime: true,
-					price: {
-						symbol: "$",
-						value: 24.99,
-						currency: "USD",
-						raw: "$24.99"
-					}
+					prices: [
+						{
+							symbol: "$",
+							value: 24.99,
+							currency: "USD",
+							raw: "$24.99"
+						}
+					]
 				}
 			],
 			create_user: "",
@@ -181,6 +187,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				return fetch(url)
 					.then(resp => resp.json())
 					.then(response => {
+						console.log(response);
 						setStore({ database: response.search_results });
 					});
 			},

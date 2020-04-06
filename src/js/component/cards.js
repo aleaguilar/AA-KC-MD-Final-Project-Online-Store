@@ -15,10 +15,11 @@ export const Cards = props => {
 	const addToCart = () => {
 		const database = {
 			name: props.name,
-			// price: props.price,
+			price: props.price,
 			id: props.id,
 			image: props.image
 		};
+
 		actions.addToCart(database);
 	};
 
@@ -35,8 +36,10 @@ export const Cards = props => {
 						<b>{props.name}</b>
 					</Card.Text>
 					<Card.Text>
-						<b>{/* Price:<span>$</span>
-							{props.price} */}</b>
+						<b>
+							Price:
+							{props.price}
+						</b>
 					</Card.Text>
 					<Button className="bestselling-button" variant="success" onClick={addToCart}>
 						<b>Add To Cart</b>
@@ -50,6 +53,6 @@ export const Cards = props => {
 Cards.propTypes = {
 	id: PropTypes.string,
 	name: PropTypes.string,
-	price: PropTypes.number,
+	price: PropTypes.string,
 	image: PropTypes.string
 };
