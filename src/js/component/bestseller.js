@@ -16,7 +16,7 @@ export const BestSeller = props => {
 	const addToCart = () => {
 		const database = {
 			name: props.name,
-			// price: props.price,
+			price: props.price,
 			id: props.id,
 			image: props.image
 		};
@@ -27,16 +27,11 @@ export const BestSeller = props => {
 		<div className="container">
 			<h1 className="text-center pb-4">Featured Products</h1>
 			<CardDeck className="row w-100">
-				{store.database.map(item => {
-					return (
-						<Cards
-							name={item.title}
-							// price={item.price.value}
-							image={item.image}
-							key={item.asin}
-							id={item.asin}
-						/>
-					);
+				{store.database.map((item, index) => {
+					console.log(item);
+					let price = item["prices"] ? item["prices"][0].raw : "$99.99";
+
+					return <Cards name={item.title} price={price} image={item.image} key={item.asin} id={item.asin} />;
 				})}
 			</CardDeck>
 		</div>
@@ -46,6 +41,6 @@ export const BestSeller = props => {
 BestSeller.propTypes = {
 	id: PropTypes.string,
 	name: PropTypes.string,
-	price: PropTypes.number,
+	price: PropTypes.string,
 	image: PropTypes.string
 };
