@@ -1,6 +1,6 @@
 import { Redirect } from "react-router-dom";
 
-const apiHost = "https://3000-a8a7f3bc-6169-402e-85b3-198f34b5a0a1.ws-us02.gitpod.io";
+const apiHost = "https://liberty-mall.herokuapp.com";
 
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
