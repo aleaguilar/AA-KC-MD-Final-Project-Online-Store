@@ -25,10 +25,17 @@ export const BestSeller = props => {
 
 	return (
 		<div className="container">
-			<h1 className="text-center pb-4">Featured Products</h1>
+			{store.database !== null && store.database !== undefined ? (
+				<>
+					<h1 className="text-center pb-4">Search Results</h1>
+				</>
+			) : (
+				<>
+					<h1 className="text-center pb-4">Featured Products</h1>
+				</>
+			)}
 			<CardDeck className="row w-100">
 				{store.database.map((item, index) => {
-					console.log(item);
 					let price = item["prices"] ? item["prices"][0].raw : "$99.99";
 
 					return <Cards name={item.title} price={price} image={item.image} key={item.asin} id={item.asin} />;

@@ -115,7 +115,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 						setStore({ create_user: response.message });
 						history.push("/registration/confirmation");
 					});
-				//.then(() => history.push("/registration/confirmation"));
 			},
 			login: (email, password) => {
 				let store = getStore();
@@ -144,12 +143,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			addToCart: item => {
 				let store = getStore();
 				let itemCheck = store.cart.filter(current => item.id === current.id);
-				// console.log("itemCheck: ", itemCheck);
 
 				if (itemCheck.length > 0) {
 					let index = store.cart.findIndex(current => item.id === current.id);
 					store.cart[index].count++;
-					// console.log(store.cart[index].count);
 				} else {
 					item.count = 1;
 					store.cart.push(item);
@@ -191,7 +188,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				return fetch(url)
 					.then(resp => resp.json())
 					.then(response => {
-						console.log(response);
 						setStore({ database: response.search_results });
 					});
 			},
