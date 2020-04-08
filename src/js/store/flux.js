@@ -65,6 +65,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			create_user: "",
 			token: null,
 			cart: [],
+			cartSubtotal: 0,
+			cartTaxes: 0,
 			cartTotal: 0,
 			removeFromCart: []
 		},
@@ -159,20 +161,22 @@ const getState = ({ getStore, getActions, setStore }) => {
 				let store = getStore();
 
 				let qty = store.cart.reduce((total, current) => total + current.count, 0);
-				// console.log(qty);
+
 				return qty;
 			},
 			updateCartTotal: () => {
 				let store = getStore();
-
-				let cartTotal = store.cart.map(item => {
-					return item.count * item.price;
+				let cartSubtotal = 0;
+				let cartTaxes = 0;
+				store.cart.forEach(item => {
+					cartSubtotal += parseInt(item.count) * parseFloat(item.price.replace(/[^0-9\.]+/g, ""));
 				});
-				// console.log(cartTotal);
-
-				store.cartTotal = cartTotal.reduce((total, current) => total + current, 0);
-
-				setStore(store);
+				cartTaxes = cartSubtotal * 0.07;
+				setStore({
+					cartTaxes: cartTaxes.toFixed(2),
+					cartSubtotal: cartSubtotal.toFixed(2),
+					cartTotal: (cartSubtotal + cartTaxes).toFixed(2)
+				});
 			},
 			searchbarAPI: input => {
 				var url = new URL("https://api.rainforestapi.com/request");

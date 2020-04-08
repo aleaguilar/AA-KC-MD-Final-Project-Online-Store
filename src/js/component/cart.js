@@ -37,12 +37,14 @@ export const Cart = () => {
 											className="p-1 fas fa-arrow-alt-circle-up"
 											onClick={() => {
 												actions.increaseQty(index);
+												actions.updateCartTotal();
 											}}></i>
 										{item.count}
 										<i
 											className="p-1 fas  fa-arrow-alt-circle-down"
 											onClick={() => {
 												actions.decreaseQty(index);
+												actions.updateCartTotal();
 											}}></i>
 									</div>
 									<div className="col-6 col-md-2">
@@ -51,6 +53,7 @@ export const Cart = () => {
 											aria-hidden="true"
 											onClick={() => {
 												actions.deleteSingleItem(item.id);
+												actions.updateCartTotal();
 											}}></i>
 									</div>
 									<div className="col-6 col-md-2">{item.price}</div>
@@ -67,15 +70,16 @@ export const Cart = () => {
 									className="btn btn-primary"
 									onClick={() => {
 										actions.removeAllItems();
+										actions.updateCartTotal();
 									}}>
 									Remove all Items
 								</button>
 							</div>
 							<div className="pt-2 offset-md-10 col-12 col-md-4">
-								<strong> Subtotal:</strong> $
+								<strong> Subtotal:</strong> ${store.cartSubtotal}
 							</div>
 							<div className="offset-md-10 col-12 col-md-4">
-								<strong> Tax:</strong> $
+								<strong> Tax:</strong> ${store.cartTaxes}
 							</div>
 							<div className="offset-md-10 col-12 col-md-4">
 								<strong>Total:</strong> ${store.cartTotal}
