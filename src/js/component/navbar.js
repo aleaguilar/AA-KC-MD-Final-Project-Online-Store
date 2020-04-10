@@ -25,8 +25,8 @@ export const NavbarNew = () => {
 			</Navbar.Brand>
 			<Navbar.Toggle aria-controls="basic-navbar-nav" />
 			<Navbar.Collapse id="basic-navbar-nav">
-				<div className="rightside ml-auto">
-					<Nav className="text-white">
+				<div className="rightside text-right p-2 ml-auto col-sm ">
+					<Nav className="text-white navRight ">
 						{store.token !== null && store.token !== undefined ? (
 							<>
 								<Nav.Link className="nav-link text-white" href="#" as={Link} to="/account">

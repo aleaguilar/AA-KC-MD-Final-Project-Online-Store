@@ -45,7 +45,7 @@ export const Searchbar = () => {
 				<div className="search p-0">
 					<h1 className="h1sticky text-center pb-4">Buy just about everything</h1>
 					<Form onSubmit={e => handleSubmit(e)}>
-						<InputGroup className="mb-3">
+						<InputGroup className="mb-3 ml-1">
 							<FormControl
 								placeholder="Search for Anything"
 								aria-label="searchbar"

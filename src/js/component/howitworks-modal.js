@@ -19,7 +19,7 @@ export const HiwModal = props => {
 	const { onHide } = props;
 
 	return (
-		<Modal {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
+		<Modal {...props} size="lg" aria-labelledby="contained-modal-title-vcenter pr-3" centered>
 			<Modal.Header>
 				<Modal.Title className="text-white" id="contained-modal-title-vcenter">
 					How Liberty Mall Works!
