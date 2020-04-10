@@ -25,9 +25,11 @@ export const BestSeller = props => {
 
 	return (
 		<div className="container">
-			{store.database !== null && store.database !== undefined ? (
+			{store.showResults ? (
 				<>
-					<h1 className="text-center pb-4">Search Results</h1>
+					<h1 className="text-center pb-4">
+						{store.showEmpty ? "No results available, please search for other products." : "Search Results"}{" "}
+					</h1>
 				</>
 			) : (
 				<>

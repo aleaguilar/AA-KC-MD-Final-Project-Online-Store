@@ -68,7 +68,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			cartSubtotal: 0,
 			cartTaxes: 0,
 			cartTotal: 0,
-			removeFromCart: []
+			removeFromCart: [],
+			showResults: false,
+			showEmpty: false
 		},
 		actions: {
 			saveToken: token => {
@@ -93,7 +95,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 			},
 			createUser: (name, lastname, email, address, city, country, password, history) => {
-				//history.push("/registration/confirmation");
 				let store = getStore();
 				return fetch(apiHost + "/register", {
 					method: "POST",
@@ -176,6 +177,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				});
 			},
 			searchbarAPI: input => {
+				let store = getStore();
 				var url = new URL("https://api.rainforestapi.com/request");
 				var params = {
 					api_key: process.env.API_KEY,
@@ -188,7 +190,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				return fetch(url)
 					.then(resp => resp.json())
 					.then(response => {
-						setStore({ database: response.search_results });
+						setStore({
+							database: response.search_results,
+							showResults: true,
+							showEmpty: response.search_results.length == 0 ? true : false
+						});
 					});
 			},
 			increaseQty: index => {
