@@ -25,9 +25,11 @@ export const Searchbar = () => {
 	};
 
 	const handleSubmit = e => {
-		e.preventDefault();
-		setLoading(true);
-		runSearch();
+		if (input !== "") {
+			e.preventDefault();
+			setLoading(true);
+			runSearch();
+		}
 	};
 
 	const runSearch = () => {
