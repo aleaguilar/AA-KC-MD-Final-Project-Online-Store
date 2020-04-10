@@ -17,7 +17,7 @@ export const NavbarNew = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<Navbar expand="lg" className=" sticky navbar navbar-light font-weight-bold pt-3">
+		<Navbar expand="lg" className="sticky fixed-top navbar navbar-light font-weight-bold pt-3">
 			<Navbar.Brand href="#home">
 				<Link className="link registration-link nav-link text-white" to="/">
 					<img src="/logo.png" />
@@ -25,8 +25,8 @@ export const NavbarNew = () => {
 			</Navbar.Brand>
 			<Navbar.Toggle aria-controls="basic-navbar-nav" />
 			<Navbar.Collapse id="basic-navbar-nav">
-				<div className="rightside ml-auto">
-					<Nav className="text-white">
+				<div className="rightside text-right p-2 ml-auto col-sm ">
+					<Nav className="text-white navRight ">
 						{store.token !== null && store.token !== undefined ? (
 							<>
 								<Nav.Link className="nav-link text-white" href="#" as={Link} to="/account">
